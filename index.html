@@ -1,0 +1,2760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitTrack — Next-Gen Gym Operating System & Admin Console</title>
+  <meta name="description" content="Automate turnstile access, eliminate manual trainer rostering, and sync real-time member telemetry across your strength and conditioning facility.">
+  <link rel="stylesheet" href="./src/styles.css?v=2.5.0">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Global Header / Navigation (Landing Page Mode)
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo js-nav-home">
+        <div class="brand-icon">F</div>
+        <span>FitTrack</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#features" class="nav-link js-nav-home">Features</a></li>
+          <li><a href="#trainers" class="nav-link js-nav-home">Trainers</a></li>
+          <li><a href="#pricing" class="nav-link js-nav-home">Pricing</a></li>
+          <li><a href="#testimonials" class="nav-link js-nav-home">Testimonials</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span>v2.4 TELEMETRY LIVE</span>
+        </div>
+        <button class="btn btn-ghost js-nav-login" id="nav-btn-login">Log In</button>
+        <button class="btn btn-lime js-nav-login">Get Started &rarr;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       VIEW PANE 1: LANDING PAGE
+       ========================================================================== -->
+  <main id="view-landing" class="view-pane">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge-tag">
+            <span class="pulse-dot"></span>
+            <span>NEXT-GEN GYM OPERATING SYSTEM</span>
+          </div>
+
+          <h1 class="hero-title">
+            The Complete Gym Management Platform
+          </h1>
+
+          <p class="hero-description">
+            Automate turnstile access, eliminate manual trainer rostering, and sync real-time member telemetry across your entire strength and conditioning facility.
+          </p>
+
+          <div class="hero-ctas">
+            <button class="btn btn-lime js-nav-login">
+              <span>GET STARTED &rarr;</span>
+            </button>
+            <button class="btn btn-dark" onclick="openModal('Book Free Facility Trial', 'Our technical squad will configure a 14-day live sandbox preview tailored to your facility floor plan.', 'Request Trial Access')">
+              <span>⚡ BOOK A FREE TRIAL</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- HERO TELEMETRY HUD PREVIEW CARD -->
+        <div class="telemetry-preview-wrapper">
+          <div class="telemetry-header-bar">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div>LIVE FACILITY TELEMETRY &bull; Aurora Station 01</div>
+            <div class="font-mono text-lime">● ONLINE</div>
+          </div>
+
+          <div class="telemetry-image-container">
+            <img src="./assets/hero-gym.png" alt="FitTrack Gym Telemetry Dashboard View" class="telemetry-bg-img">
+
+            <div class="hud-overlay-top">
+              <span class="pulse-dot"></span>
+              <span>LIVE FLOOR FEED: SQUAT BAYS & RIGS</span>
+            </div>
+
+            <div class="hud-overlay-bottom">
+              <div class="hud-stat-card">
+                <div class="hud-stat-label">Club Occupancy</div>
+                <div class="hud-stat-value" id="hud-occupancy">84%</div>
+                <div class="hud-stat-sub">
+                  <span class="badge-tag" style="padding: 0.1rem 0.4rem; font-size: 0.65rem;">PEAK</span>
+                </div>
+              </div>
+
+              <div class="hud-stat-card">
+                <div class="hud-stat-label">Turnstile Pace</div>
+                <div class="hud-stat-value"><span id="hud-pace">142</span> <span style="font-size: 0.8rem; color: var(--text-muted);">/hr</span></div>
+                <div class="hud-stat-sub">⚡ +18.4% vs prev week</div>
+              </div>
+
+              <div class="hud-stat-card">
+                <div class="hud-stat-label">Active Sessions</div>
+                <div class="hud-stat-value" id="hud-sessions">28</div>
+                <div class="hud-stat-sub" style="color: var(--accent-cyan);">⚡ 100% Floor Safety</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS BAR SECTION -->
+    <section class="metrics-section">
+      <div class="container metrics-grid">
+        <div class="metric-item">
+          <div class="metric-number">0.18s <span class="metric-badge">SCAN</span></div>
+          <div class="metric-title">Fast Turnstile Scan</div>
+          <div class="metric-desc">Zero gate bottlenecks during peak rush hours</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-number">99.4% <span class="metric-badge">+1.2%</span></div>
+          <div class="metric-title">Automated Revenue</div>
+          <div class="metric-desc">Auto-billing recovery and simulated POS / UPI sync</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-number">38 hrs <span class="metric-badge">SAVED/MO</span></div>
+          <div class="metric-title">Trainer Efficiency</div>
+          <div class="metric-desc">Algorithmic double-booking prevention</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-number">+31.8% <span class="metric-badge">YoY</span></div>
+          <div class="metric-title">Member Retention</div>
+          <div class="metric-desc">Gated goal milestone celebration triggers</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION: INTELLIGENT FACILITY CONTROL -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-tag badge-tag-cyan">ARCHITECTED FOR HIGH-VOLUME FACILITIES</div>
+          <h2 class="section-title">Intelligent Facility Control</h2>
+          <p class="section-subtitle">
+            Replace disjointed spreadsheets, physical logbooks, and outdated card readers with unified athletic software.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div>
+              <div class="feature-top">
+                <div class="feature-icon-wrapper">🛃</div>
+                <div class="badge-tag">ACCESS CORE</div>
+              </div>
+              <h3 class="feature-title">Manage Members</h3>
+              <p class="feature-text">
+                Complete automated member profiles with high-speed RFID turnstile validation, instant QR check-ins, automated subscription lifecycle, and failed-payment damming.
+              </p>
+            </div>
+            <ul class="feature-list">
+              <li class="feature-list-item"><span class="check-icon">&check;</span> Sub-second NFC / Biometric gate unlock</li>
+              <li class="feature-list-item"><span class="check-icon">&check;</span> Timed guest passes & freeze status</li>
+              <li class="feature-list-item"><span class="check-icon">&check;</span> Self-serve digital onboarding kiosk</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div>
+              <div class="feature-top">
+                <div class="feature-icon-wrapper">📅</div>
+                <div class="badge-tag badge-tag-cyan">ROSTER SYNC</div>
+              </div>
+              <h3 class="feature-title">Assign Trainers</h3>
+              <p class="feature-text">
+                Algorithmic matchmaking pairs athlete goals with trainer certifications. Live floor zoning prevents cage collisions and manages client-to-coach ratios effortlessly.
+              </p>
+            </div>
+            <ul class="feature-list">
+              <li class="feature-list-item"><span class="check-icon">&check;</span> Commission & revenue splits calculated live</li>
+              <li class="feature-list-item"><span class="check-icon">&check;</span> Visual drag-and-drop studio scheduler</li>
+              <li class="feature-list-item"><span class="check-icon">&check;</span> Automated SMS reminders & waitlists</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div>
+              <div class="feature-top">
+                <div class="feature-icon-wrapper">📈</div>
+                <div class="badge-tag badge-tag-purple">BIO TELEMETRY</div>
+              </div>
+              <h3 class="feature-title">Track Progress</h3>
+              <p class="feature-text">
+                Synchronize connected gym rigs, barbell velocity trackers, and in-body biometric scales directly into athlete profiles for tangible personal records and retention.
+              </p>
+            </div>
+            <ul class="feature-list">
+              <li class="feature-list-item"><span class="check-icon">&check;</span> 1RM linear progression charting</li>
+              <li class="feature-list-item"><span class="check-icon">&check;</span> DEXA / InBody scan photo comparison</li>
+              <li class="feature-list-item"><span class="check-icon">&check;</span> Automated PR badges to member app</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAINERS SECTION -->
+    <section id="trainers" class="section" style="background: var(--bg-secondary); border-y: 1px solid var(--border-dark);">
+      <div class="container">
+        <div class="section-header">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div class="badge-tag badge-tag-purple">ELITE COACHING SQUAD</div>
+              <h2 class="section-title">World-Class Trainers On Deck</h2>
+            </div>
+            <div class="status-pill">
+              <span class="pulse-dot"></span>
+              <span>24 Coaches Available for Assignment Today</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trainers-grid">
+          <div class="trainer-card">
+            <div class="trainer-img-wrapper">
+              <img src="./assets/trainer-marcus.png" alt="Marcus Vance" class="trainer-img">
+              <div class="trainer-rating-badge">★ 4.9 <span style="color: var(--text-muted); font-weight: 400;">(142)</span></div>
+            </div>
+            <div class="trainer-content">
+              <div class="trainer-specialty">OLYMPIC LIFTING SPECIALIST</div>
+              <h3 class="trainer-name">Marcus Vance</h3>
+              <p class="trainer-bio">USAW Level 3 Coach. 9+ years mentoring competitive powerlifters and bar-speed athletes.</p>
+              <button class="btn-book-session" onclick="openModal('Book Session with Marcus Vance', 'Select your preferred squat rack bay and time slot for 1-on-1 velocity coaching.', 'Schedule Session')">
+                <span>BOOK SESSION</span>
+                <span>&nearr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="trainer-card">
+            <div class="trainer-img-wrapper">
+              <img src="./assets/trainer-elena.png" alt="Elena Rostova" class="trainer-img">
+              <div class="trainer-rating-badge">★ 5.0 <span style="color: var(--text-muted); font-weight: 400;">(188)</span></div>
+            </div>
+            <div class="trainer-content">
+              <div class="trainer-specialty">HEAD OF HIIT & CONDITIONING</div>
+              <h3 class="trainer-name">Elena Rostova</h3>
+              <p class="trainer-bio">Ex-triathlete specializing in VO2 max optimization, metabolic conditioning, and speed endurance.</p>
+              <button class="btn-book-session" onclick="openModal('Book Session with Elena Rostova', 'Select high-intensity conditioning slot and lactate threshold assessment.', 'Schedule Session')">
+                <span>BOOK SESSION</span>
+                <span>&nearr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="trainer-card">
+            <div class="trainer-img-wrapper">
+              <img src="./assets/trainer-derrick.png" alt="Derrick Thorne, DPT" class="trainer-img">
+              <div class="trainer-rating-badge">★ 4.9 <span style="color: var(--text-muted); font-weight: 400;">(88)</span></div>
+            </div>
+            <div class="trainer-content">
+              <div class="trainer-specialty">MOBILITY & REHAB LEAD</div>
+              <h3 class="trainer-name">Derrick Thorne, DPT</h3>
+              <p class="trainer-bio">Doctor of Physical Therapy. Joint health restoration, kinetic chain re-alignment, and post-ACL return.</p>
+              <button class="btn-book-session" onclick="openModal('Book Session with Dr. Derrick Thorne', 'Book kinetic chain assessment and joint mobility screen.', 'Schedule Session')">
+                <span>BOOK SESSION</span>
+                <span>&nearr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="trainer-card">
+            <div class="trainer-img-wrapper">
+              <img src="./assets/trainer-aria.png" alt="Aria Kincaid" class="trainer-img">
+              <div class="trainer-rating-badge">★ 4.9 <span style="color: var(--text-muted); font-weight: 400;">(167)</span></div>
+            </div>
+            <div class="trainer-content">
+              <div class="trainer-specialty">HYPERTROPHY & BODY RECOMP</div>
+              <h3 class="trainer-name">Aria Kincaid</h3>
+              <p class="trainer-bio">IFBB Pro athlete. Specializes in volume periodization, macro nutrition coaching, and contest prep.</p>
+              <button class="btn-book-session" onclick="openModal('Book Session with Aria Kincaid', 'Book body composition consultation and progressive hypertrophy plan.', 'Schedule Session')">
+                <span>BOOK SESSION</span>
+                <span>&nearr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="section pricing-section">
+      <div class="container">
+        <div class="section-header center">
+          <div class="badge-tag">PREDICTABLE FACILITY PRICING</div>
+          <h2 class="section-title">Choose Your Engine Capacity</h2>
+          <p class="section-subtitle">
+            Simple monthly investment scales with your athlete headcount. No hidden per-card check-in surcharges.
+          </p>
+        </div>
+
+        <div class="billing-toggle-container">
+          <span class="billing-label active" id="label-monthly">Monthly Billing</span>
+          <div class="toggle-switch" id="billing-toggle">
+            <div class="toggle-handle"></div>
+          </div>
+          <span class="billing-label" id="label-annual">Annual Billing <span class="badge-tag" style="padding: 0.1rem 0.5rem; font-size: 0.65rem;">SAVE 20%</span></span>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-top">
+              <span class="plan-category">STARTER CLUB</span>
+              <span class="plan-tag">Single Site</span>
+            </div>
+            <h3 class="plan-name">BASIC</h3>
+            <p class="plan-desc">Essential operational tools for boutique micro-gyms & private barbell clubs.</p>
+            <div class="plan-price-box">
+              <span class="price-amount" id="price-basic">₹3,999</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <ul class="plan-features">
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Up to 250 active members</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> RFID & mobile QR gate access</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Automated monthly billing & UPI AutoPay sync</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Up to 3 trainer roster slots</li>
+            </ul>
+            <button class="btn btn-dark js-nav-login" style="width: 100%;">DEPLOY BASIC</button>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="featured-badge">&starf; MOST POPULAR</div>
+            <div class="pricing-top">
+              <span class="plan-category text-lime">PERFORMANCE CENTER</span>
+              <span class="badge-tag-cyan" style="padding: 0.15rem 0.5rem; font-size: 0.65rem; border-radius: 4px; font-weight: bold;">High Growth</span>
+            </div>
+            <h3 class="plan-name">PRO</h3>
+            <p class="plan-desc">Full-throttle management for expanding athletic clubs and dynamic studios.</p>
+            <div class="plan-price-box">
+              <span class="price-amount" id="price-pro">₹7,999</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <ul class="plan-features">
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Up to 1,500 active members</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Multi-turnstile biometric synchronization</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Full trainer scheduler & commission automation</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> 15 coach profile slots</li>
+            </ul>
+            <button class="btn btn-lime js-nav-login" style="width: 100%;">DEPLOY PRO SYSTEM</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-top">
+              <span class="plan-category">FRANCHISE & ENTERPRISE</span>
+              <span class="badge-tag-purple" style="padding: 0.15rem 0.5rem; font-size: 0.65rem; border-radius: 4px; font-weight: bold;">Multi-Location</span>
+            </div>
+            <h3 class="plan-name">ELITE</h3>
+            <p class="plan-desc">Multi-campus operations requiring custom hardware APIs and centralized governance.</p>
+            <div class="plan-price-box">
+              <span class="price-amount" id="price-elite">₹15,999</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <ul class="plan-features">
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Unlimited athlete memberships</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Multi-branch unified billing & member passports</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Custom API & webhook integrations</li>
+              <li class="plan-feature-item"><span class="check-icon">&check;</span> Dedicated 24/7 technical lead & on-site SLA</li>
+            </ul>
+            <button class="btn btn-dark js-nav-login" style="width: 100%;">DEPLOY ELITE</button>
+          </div>
+        </div>
+
+        <div class="trust-badges-bar">
+          <div class="trust-item">🔒 <span>256-bit SOC2 Compliant</span></div>
+          <div class="trust-item">🛡️ <span>30-Day Money-Back Guarantee</span></div>
+          <div class="trust-item">⚡ <span>Zero-Downtime Migration</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div class="badge-tag">TESTED IN HIGH-INTENSITY FACILITIES</div>
+              <h2 class="section-title">What Facility Directors Say</h2>
+            </div>
+            <div class="font-mono text-lime" style="font-size: 0.9rem; font-weight: bold;">
+              ★★★★★ 4.96/5 across 420+ Gyms
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div>
+              <div class="rating-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Saved 15+ hours of scheduling each week. Now FitTrack automatically reallocates open squat bays without any collisions."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">TL</div>
+              <div>
+                <div class="author-name">Torin Lindqvist</div>
+                <div class="author-role">Owner, IronForge Strength (Austin, TX)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="rating-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Retention jumped 32% inside the first four months. Telemetry leaderboards give members a reason to keep coming back."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">SK</div>
+              <div>
+                <div class="author-name">Soren Kincaid</div>
+                <div class="author-role">GM, Apex Athletic Labs (Miami, FL)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="rating-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Member check-ins are instantaneous. Even during peak hours, turnstiles scan seamlessly via Apple Wallet."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">DR</div>
+              <div>
+                <div class="author-name">Danielle Reyes</div>
+                <div class="author-role">COO, Kinetic Hub Franchises</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <div>&copy; 2026 FitTrack Technologies Inc. Precision Kinetic Systems. All rights reserved.</div>
+          <div class="legal-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ==========================================================================
+       VIEW PANE 2: DEDICATED LOGIN & SIGN UP VIEW
+       ========================================================================== -->
+  <main id="view-login" class="view-pane">
+    <div class="login-page-wrapper">
+      <div class="login-card-container">
+        <div class="login-left-pane">
+          <div>
+            <a href="#" class="brand-logo js-nav-home" style="margin-bottom: 2rem;">
+              <div class="brand-icon">F</div>
+              <span>FitTrack</span>
+            </a>
+            <div class="badge-tag badge-tag-cyan" style="margin-bottom: 1.25rem;">
+              <span>V2.4 PRODUCTION</span>
+            </div>
+            <h2 style="font-family: var(--font-heading); font-size: 2.25rem; font-weight: 800; line-height: 1.15; text-transform: uppercase; margin-bottom: 1rem;">
+              Engineered for Velocity
+            </h2>
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--accent-lime); margin-bottom: 1rem;">
+              Built for High-Performance Gyms, Coaches, and Athletes.
+            </h3>
+          </div>
+          <div style="border-top: 1px solid var(--border-dark); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800;">1,200+</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">ACTIVE GYMS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="login-right-pane">
+          <div class="auth-tabs">
+            <button class="auth-tab-btn active" id="tab-btn-login">&bull; Log In</button>
+            <button class="auth-tab-btn" id="tab-btn-signup">Sign Up</button>
+          </div>
+
+          <h2 id="auth-form-title" style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; margin-bottom: 0.4rem;">
+            Welcome back
+          </h2>
+          <p id="auth-form-subtitle" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
+            Access your gym dashboard and biometric workout logs
+          </p>
+
+          <form id="auth-form">
+            <div class="form-group">
+              <label for="input-email" class="form-label">EMAIL ADDRESS</label>
+              <input type="email" id="input-email" required class="form-input" value="alex.reyes@athleticops.com">
+            </div>
+
+            <div class="form-group">
+              <label for="input-password" class="form-label">PASSWORD</label>
+              <input type="password" id="input-password" required class="form-input" value="Password123!">
+            </div>
+
+            <button type="submit" id="auth-submit-btn" class="btn btn-lime" style="width: 100%; padding: 0.9rem; margin-bottom: 1.5rem;">
+              Log in to Dashboard &rarr;
+            </button>
+          </form>
+          <a href="#" class="js-nav-admin" style="font-size: 0.8rem; color: var(--accent-lime); text-align: center; display: block;">&rarr; Or Directly Open Admin Console Preview</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       VIEW PANE 3: FITTRACK ADMIN PORTAL CONSOLE (ALL 8 PAGES)
+       ========================================================================== -->
+  <main id="view-admin" class="view-pane active">
+    <div class="admin-wrapper">
+
+      <!-- ADMIN SIDEBAR NAVIGATION -->
+      <aside class="admin-sidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-brand-box">
+            <a href="#" class="brand-logo js-nav-home" title="View Landing Page">
+              <div class="brand-logo-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div class="brand-title-wrap">
+                <span class="brand-name">FITTRACK</span>
+                <span class="brand-sub-badge">ATHLETE <span class="console-tag">CONSOLE</span> OPS</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="sidebar-section-title">MANAGEMENT</div>
+
+          <ul class="sidebar-nav">
+            <li class="admin-nav-item active" data-target="dashboard" id="nav-dashboard">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </span>
+              <span>Dashboard</span>
+            </li>
+            <li class="admin-nav-item" data-target="members" id="nav-members">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </span>
+              <span>Members</span>
+            </li>
+            <li class="admin-nav-item" data-target="trainers" id="nav-trainers">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+              </span>
+              <span>Trainers</span>
+            </li>
+            <li class="admin-nav-item" data-target="memberships" id="nav-memberships">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+              </span>
+              <span>Memberships</span>
+            </li>
+            <li class="admin-nav-item" data-target="payments" id="nav-payments">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line><circle cx="12" cy="15" r="2"></circle></svg>
+              </span>
+              <span>Payments</span>
+            </li>
+            <li class="admin-nav-item" data-target="attendance" id="nav-attendance">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path><line x1="8" y1="2" x2="8" y2="7"></line><line x1="16" y1="2" x2="16" y2="7"></line></svg>
+              </span>
+              <span>Attendance</span>
+            </li>
+            <li class="admin-nav-item" data-target="reports" id="nav-reports">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </span>
+              <span>Reports</span>
+            </li>
+            <li class="admin-nav-item" data-target="settings" id="nav-settings">
+              <span class="admin-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </span>
+              <span>Settings</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="server-status-pill">
+            <span class="pulse-dot"></span>
+            <span class="server-name">Frankfurt DC-04</span>
+            <span class="status-online">ONLINE</span>
+          </div>
+
+          <div class="admin-user-pill">
+            <div class="admin-user-avatar">AR</div>
+            <div class="admin-user-meta">
+              <div class="admin-user-name">Alex Reyes</div>
+              <div class="admin-user-title">Head Admin</div>
+            </div>
+            <button class="btn-logout js-nav-login" title="Switch User / Logout">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ADMIN MAIN CONTENT AREA -->
+      <div class="admin-content-area">
+
+        <!-- TOP BAR (SHARED HEADER) -->
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <div class="topbar-breadcrumb">
+              <span class="topbar-brand-link"><span class="topbar-logo-mark">⚡</span> FITTRACK</span>
+              <span class="topbar-crumb-separator">/</span>
+              <span class="topbar-terminal-text" id="topbar-crumb-title">FitTrack / Terminal</span>
+            </div>
+          </div>
+
+          <div class="topbar-center">
+            <div class="topbar-search-box">
+              <svg class="search-svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="admin-global-search" placeholder="Search members, trainer /">
+              <span class="search-kbd-shortcut">/</span>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="topbar-synced-badge">
+              <span class="pulse-dot"></span>
+              <span>SYSTEM SYNCED</span>
+            </div>
+
+            <button class="topbar-icon-btn" id="btn-notifications" title="System Notifications" onclick="showToast('All 4 facility nodes reporting normal telemetry. Zero dunning alerts.')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span class="notif-dot"></span>
+            </button>
+
+            <button class="btn btn-lime btn-quick-action" onclick="openQuickActionModal()">
+              <span>+ Quick Action</span>
+            </button>
+
+            <div class="topbar-user-avatar" title="Alex Reyes (Head Admin)">
+              <div class="avatar-ring">
+                <span class="avatar-text">AR</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ====================================================================
+             PAGE 1: DASHBOARD OVERVIEW (#page-dashboard) - FROM SCREENSHOT 3
+             ==================================================================== -->
+        <div id="page-dashboard" class="admin-sub-page active">
+          
+          <!-- Subheader / Page Header -->
+          <div class="subpage-header-block">
+            <div class="telemetry-live-pill font-mono">
+              <span class="pulse-dot"></span>
+              <span>LIVE TELEMETRY Synced 14 seconds ago via Core Mesh</span>
+            </div>
+
+            <div class="header-action-row">
+              <div>
+                <h1 class="page-main-title">Executive Studio Hub</h1>
+              </div>
+              <div class="campus-selector-group">
+                <button class="campus-pill active" id="campus-central">● Central Campus</button>
+                <button class="campus-pill" id="campus-east">East District</button>
+                <button class="campus-filter-btn" title="Filter Location" onclick="showToast('Location filter opened')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top 4 KPI Metric Cards -->
+          <div class="admin-kpi-grid">
+            <!-- KPI 1: Total Members -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">TOTAL MEMBERS</span>
+                <div class="kpi-icon-box kpi-icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num">1,842</span>
+              </div>
+              <div class="kpi-footer-row">
+                <div class="kpi-trend-badge green">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 17 17 7 17 17"></polyline><line x1="7" y1="7" x2="17" y2="7"></line></svg>
+                  <span>+12.4%</span>
+                </div>
+                <!-- Mini Sparkline SVG -->
+                <svg class="kpi-sparkline" width="70" height="24" viewBox="0 0 70 24">
+                  <path d="M 0,20 Q 20,18 35,12 T 70,3" fill="none" stroke="#c6ff00" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- KPI 2: Active Trainers -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">ACTIVE TRAINERS</span>
+                <div class="kpi-icon-box kpi-icon-purple">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num">24 <span class="kpi-fraction">/ 24</span></span>
+              </div>
+              <div class="kpi-footer-row flex-wrap-gap">
+                <span class="kpi-tag-dark">● 2 on floor</span>
+                <span class="kpi-tag-dark">• 100% duty</span>
+                <span class="kpi-tag-purple">ALL BOOKED</span>
+              </div>
+            </div>
+
+            <!-- KPI 3: Monthly Revenue -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">MONTHLY REVENUE</span>
+                <div class="kpi-icon-box kpi-icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num" id="stat-dashboard-revenue">₹8,43,200</span>
+              </div>
+              <div class="kpi-footer-row">
+                <div class="kpi-trend-badge green">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 17 17 7 17 17"></polyline><line x1="7" y1="7" x2="17" y2="7"></line></svg>
+                  <span>+18.2%</span>
+                </div>
+                <span class="kpi-sub-text">Target ₹9.2L</span>
+              </div>
+            </div>
+
+            <!-- KPI 4: Today's Attendance -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">TODAY'S ATTENDANCE</span>
+                <div class="kpi-icon-box kpi-icon-lime">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num">418</span>
+              </div>
+              <div class="kpi-footer-row">
+                <div class="kpi-trend-badge lime">
+                  <span>((•)) +8.5% Surge</span>
+                </div>
+                <span class="kpi-sub-text">Peak 17:30</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Middle Row: Annual Yield Progression & Tiers Distribution -->
+          <div class="dashboard-middle-grid">
+            
+            <!-- Left Card: Annual Yield Progression -->
+            <div class="chart-panel-card">
+              <div class="panel-header-row">
+                <div>
+                  <div class="panel-title-with-dot">
+                    <span class="panel-dot-lime"></span>
+                    <h3 class="panel-title">Annual Yield Progression</h3>
+                  </div>
+                  <p class="panel-subtitle">Recurring subscription cycles and one-time personal coach add-ons</p>
+                </div>
+
+                <div class="chart-controls-wrap">
+                  <div class="timeframe-pill-group">
+                    <button class="tf-pill" data-tf="1M">1M</button>
+                    <button class="tf-pill" data-tf="6M">6M</button>
+                    <button class="tf-pill active" data-tf="1Y">1Y</button>
+                    <button class="tf-pill" data-tf="ALL">ALL</button>
+                  </div>
+                  <button class="btn-icon-export" title="Export Yield Data" onclick="showToast('Exporting Yield CSV...')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Stat Callouts Strip -->
+              <div class="yield-stats-strip">
+                <div class="yield-stat-col">
+                  <span class="ys-label">PEAK YIELD</span>
+                  <span class="ys-value">₹8.94L <span class="ys-sub">Dec</span></span>
+                </div>
+                <div class="yield-stat-col">
+                  <span class="ys-label">RUN-RATE</span>
+                  <span class="ys-value">₹1.02 Cr <span class="ys-sub">ARR</span></span>
+                </div>
+                <div class="yield-stat-col">
+                  <span class="ys-label">AVERAGE / MEMBER</span>
+                  <span class="ys-value">₹4,578 <span class="text-lime font-bold">+4.1%</span></span>
+                </div>
+                <div class="yield-stat-col yield-highlight-box">
+                  <span class="ys-label text-lime">● NOV RECORD</span>
+                  <span class="ys-value font-heading text-lime">₹8,43,200.00</span>
+                  <span class="ys-sub text-lime-glow">+18.2% mom growth</span>
+                </div>
+              </div>
+
+              <!-- Dual Neon Glowing Area Chart (SVG) -->
+              <div class="yield-chart-container">
+                <svg viewBox="0 0 700 240" class="responsive-svg-chart" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="neonGlowGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#c6ff00" stop-opacity="0.32"/>
+                      <stop offset="60%" stop-color="#c6ff00" stop-opacity="0.08"/>
+                      <stop offset="100%" stop-color="#c6ff00" stop-opacity="0.0"/>
+                    </linearGradient>
+                    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="3" result="blur"/>
+                      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                  </defs>
+
+                  <!-- Horizontal Guideline Dashes -->
+                  <line x1="20" y1="40" x2="680" y2="40" stroke="#1f2732" stroke-dasharray="3 3"/>
+                  <line x1="20" y1="95" x2="680" y2="95" stroke="#1f2732" stroke-dasharray="3 3"/>
+                  <line x1="20" y1="150" x2="680" y2="150" stroke="#1f2732" stroke-dasharray="3 3"/>
+                  <line x1="20" y1="205" x2="680" y2="205" stroke="#1a2029"/>
+
+                  <!-- Secondary Comparison Curve (Muted Gray/White) -->
+                  <path d="M 20,185 C 80,180 140,165 200,160 C 260,155 320,140 380,132 C 440,124 500,118 560,105 C 620,92 650,88 680,82"
+                        fill="none" stroke="#475569" stroke-width="1.8" stroke-dasharray="4 4" opacity="0.6"/>
+
+                  <!-- Area Gradient Fill -->
+                  <path d="M 20,175 C 80,168 140,150 200,140 C 260,130 320,108 380,95 C 440,82 500,74 560,62 C 600,54 640,48 680,44 L 680,205 L 20,205 Z"
+                        fill="url(#neonGlowGrad)"/>
+
+                  <!-- Primary Neon Line Curve -->
+                  <path d="M 20,175 C 80,168 140,150 200,140 C 260,130 320,108 380,95 C 440,82 500,74 560,62 C 600,54 640,48 680,44"
+                        fill="none" stroke="#c6ff00" stroke-width="3" filter="url(#glowEffect)"/>
+
+                  <!-- Nov Target Highlight Line & Circle -->
+                  <line x1="600" y1="54" x2="600" y2="205" stroke="#c6ff00" stroke-width="1.5" stroke-dasharray="3 3"/>
+                  <circle cx="600" cy="54" r="6" fill="#c6ff00" filter="url(#glowEffect)"/>
+                  <circle cx="600" cy="54" r="2.5" fill="#000"/>
+                </svg>
+
+                <!-- X-Axis Month Labels -->
+                <div class="chart-month-labels font-mono">
+                  <span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span>
+                  <span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span><span class="active-nov">NOV</span><span>DEC</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Card: Tiers & Plans Donut Ratio -->
+            <div class="chart-panel-card flex-col-between">
+              <div class="panel-header-row">
+                <div>
+                  <h3 class="panel-title">Tiers & Plans</h3>
+                  <p class="panel-subtitle">Active subscription ratio</p>
+                </div>
+                <button class="btn-icon-subtle" title="Options" onclick="showToast('Plan allocation filter opened')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+                </button>
+              </div>
+
+              <!-- SVG Donut Chart with Center Total Base -->
+              <div class="donut-chart-wrapper">
+                <div class="donut-svg-box">
+                  <svg viewBox="0 0 160 160" class="donut-svg">
+                    <!-- Background circle track -->
+                    <circle cx="80" cy="80" r="62" stroke="#161b22" stroke-width="16" fill="none"/>
+                    
+                    <!-- Pro Athletic (54%) -> circumference = 2 * pi * 62 = 389.55 -> 54% = 210.3 -->
+                    <circle cx="80" cy="80" r="62" stroke="#c6ff00" stroke-width="16" fill="none"
+                            stroke-dasharray="210.3 389.55" stroke-dashoffset="97.4" stroke-linecap="round"/>
+
+                    <!-- Elite PT Plus (28%) -> 28% = 109.07 -->
+                    <circle cx="80" cy="80" r="62" stroke="#9d4edf" stroke-width="16" fill="none"
+                            stroke-dasharray="109.07 389.55" stroke-dashoffset="-112.9" stroke-linecap="round"/>
+
+                    <!-- Standard Access (18%) -> 18% = 70.12 -->
+                    <circle cx="80" cy="80" r="62" stroke="#475569" stroke-width="16" fill="none"
+                            stroke-dasharray="70.12 389.55" stroke-dashoffset="-222" stroke-linecap="round"/>
+                  </svg>
+                  <div class="donut-center-stat">
+                    <span class="donut-big-num">1,842</span>
+                    <span class="donut-sub-text font-mono">TOTAL BASE</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Plan Breakdown Legend List -->
+              <div class="donut-legend-list">
+                <div class="legend-item-row">
+                  <div class="legend-left">
+                    <span class="legend-dot" style="background-color: #c6ff00;"></span>
+                    <span class="legend-name">Pro Athletic</span>
+                    <span class="legend-pct font-mono">54%</span>
+                  </div>
+                  <div class="legend-right">
+                    <span class="legend-seats">995 active seats</span>
+                    <span class="legend-rev font-mono">₹4,87,550/mo</span>
+                  </div>
+                </div>
+
+                <div class="legend-item-row">
+                  <div class="legend-left">
+                    <span class="legend-dot" style="background-color: #9d4edf;"></span>
+                    <span class="legend-name">Elite PT Plus</span>
+                    <span class="legend-pct font-mono">28%</span>
+                  </div>
+                  <div class="legend-right">
+                    <span class="legend-seats">518 active seats</span>
+                    <span class="legend-rev font-mono">₹2,58,000/mo</span>
+                  </div>
+                </div>
+
+                <div class="legend-item-row">
+                  <div class="legend-left">
+                    <span class="legend-dot" style="background-color: #64748b;"></span>
+                    <span class="legend-name">Standard Access</span>
+                    <span class="legend-pct font-mono">18%</span>
+                  </div>
+                  <div class="legend-right">
+                    <span class="legend-seats">331 active seats</span>
+                    <span class="legend-rev font-mono">₹97,650/mo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Row: Recent Member Sign-ups & Expiring Queue -->
+          <div class="dashboard-bottom-grid">
+            
+            <!-- Left Card: Recent Member Sign-ups -->
+            <div class="chart-panel-card">
+              <div class="panel-header-row">
+                <div>
+                  <div class="panel-title-with-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    <h3 class="panel-title">Recent Member Sign-ups</h3>
+                  </div>
+                  <p class="panel-subtitle">Real-time gate and counter enrolments</p>
+                </div>
+                <a href="#members" class="link-view-all font-mono" onclick="switchAdminPage('members')">View Directory &gt;</a>
+              </div>
+
+              <div class="compact-table-wrap">
+                <table class="modern-flat-table">
+                  <thead>
+                    <tr>
+                      <th>MEMBER</th>
+                      <th>SELECTED PLAN</th>
+                      <th>ONBOARDED</th>
+                      <th>STATE</th>
+                      <th style="text-align: right;">ACTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="user-meta-cell">
+                          <div class="member-avatar-box">MV</div>
+                          <div>
+                            <div class="member-cell-name">Marcus Vance</div>
+                            <div class="member-cell-email">m.vance@vectorfit.io</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="badge-tag-lime">Pro Athletic</span></td>
+                      <td class="font-mono text-muted">12 mins ago</td>
+                      <td><span class="state-dot-active">● Active</span></td>
+                      <td style="text-align: right;"><button class="btn-table-icon" title="View Profile" onclick="showToast('Opening Marcus Vance profile')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="user-meta-cell">
+                          <div class="member-avatar-box">ER</div>
+                          <div>
+                            <div class="member-cell-name">Elena Rostova</div>
+                            <div class="member-cell-email">elena.rostova@tec...</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="badge-tag-purple">Elite PT Plus</span></td>
+                      <td class="font-mono text-muted">48 mins ago</td>
+                      <td><span class="state-dot-active">● Active</span></td>
+                      <td style="text-align: right;"><button class="btn-table-icon" title="View Profile" onclick="showToast('Opening Elena Rostova profile')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="user-meta-cell">
+                          <div class="member-avatar-box">JK</div>
+                          <div>
+                            <div class="member-cell-name">Jordan Kai</div>
+                            <div class="member-cell-email">kai.jordan@designc...</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="badge-tag-gray">Standard</span></td>
+                      <td class="font-mono text-muted">2 hrs ago</td>
+                      <td><span class="state-dot-active">● Active</span></td>
+                      <td style="text-align: right;"><button class="btn-table-icon" title="View Profile" onclick="showToast('Opening Jordan Kai profile')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="user-meta-cell">
+                          <div class="member-avatar-box">SL</div>
+                          <div>
+                            <div class="member-cell-name">Sara Lindqvist</div>
+                            <div class="member-cell-email">sara.l@nordicfin.se</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="badge-tag-lime">Pro Athletic</span></td>
+                      <td class="font-mono text-muted">4 hrs ago</td>
+                      <td><span class="state-dot-active">● Active</span></td>
+                      <td style="text-align: right;"><button class="btn-table-icon" title="View Profile" onclick="showToast('Opening Sara Lindqvist profile')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="user-meta-cell">
+                          <div class="member-avatar-box">DM</div>
+                          <div>
+                            <div class="member-cell-name">Devon Morales</div>
+                            <div class="member-cell-email">d.morales@alphao...</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="badge-tag-purple">Elite PT Plus</span></td>
+                      <td class="font-mono text-muted">6 hrs ago</td>
+                      <td><span class="state-dot-active">● Active</span></td>
+                      <td style="text-align: right;"><button class="btn-table-icon" title="View Profile" onclick="showToast('Opening Devon Morales profile')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Right Card: Expiring In <= 7 Days Queue -->
+            <div class="chart-panel-card">
+              <div class="panel-header-row">
+                <div>
+                  <div class="panel-title-with-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <h3 class="panel-title">Expiring In &le; 7 Days</h3>
+                  </div>
+                  <p class="panel-subtitle">Retention risk management queue</p>
+                </div>
+                <div class="badge-actionable-red font-mono">5 ACTIONABLE</div>
+              </div>
+
+              <!-- Actionable List -->
+              <div class="expiring-queue-list">
+                <!-- Item 1 -->
+                <div class="expiring-item-card">
+                  <div class="exp-item-left">
+                    <div class="exp-item-name-row">
+                      <span class="exp-user-name">● Tariq Hassan</span>
+                      <span class="badge-tag-purple-sm">Elite PT</span>
+                    </div>
+                    <div class="exp-meta-row font-mono text-muted">
+                      <span>🔄 Auto-Renew: Disabled</span>
+                    </div>
+                  </div>
+                  <div class="exp-item-right">
+                    <span class="badge-expire-red font-mono">Expires in 1 day</span>
+                    <button class="btn btn-lime-sm" onclick="triggerPromptAction('Tariq Hassan', 'Elite PT')">Prompt</button>
+                    <button class="btn-menu-dots font-mono" onclick="showToast('Options for Tariq Hassan')">•••</button>
+                  </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="expiring-item-card">
+                  <div class="exp-item-left">
+                    <div class="exp-item-name-row">
+                      <span class="exp-user-name">● Chloe Bennett</span>
+                      <span class="badge-tag-lime-sm">Pro Athletic</span>
+                    </div>
+                    <div class="exp-meta-row font-mono text-red">
+                      <span>⚠️ Payment failed (Exp. Card)</span>
+                    </div>
+                  </div>
+                  <div class="exp-item-right">
+                    <span class="badge-expire-red font-mono">Expires in 2 days</span>
+                    <button class="btn btn-lime-sm" onclick="triggerPromptAction('Chloe Bennett', 'Pro Athletic')">Prompt</button>
+                    <button class="btn-menu-dots font-mono" onclick="showToast('Options for Chloe Bennett')">•••</button>
+                  </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="expiring-item-card">
+                  <div class="exp-item-left">
+                    <div class="exp-item-name-row">
+                      <span class="exp-user-name">● Liam O'Connor</span>
+                      <span class="badge-tag-gray-sm">Standard</span>
+                    </div>
+                    <div class="exp-meta-row font-mono text-muted">
+                      <span>🕒 Auto-Renew: Scheduled</span>
+                    </div>
+                  </div>
+                  <div class="exp-item-right">
+                    <span class="badge-expire-gray font-mono">Expires in 4 days</span>
+                    <button class="btn btn-outline-dark-sm" onclick="triggerExtendAction('Liam O\'Connor', 'Standard')">Extend</button>
+                    <button class="btn-menu-dots font-mono" onclick="showToast('Options for Liam O\'Connor')">•••</button>
+                  </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="expiring-item-card">
+                  <div class="exp-item-left">
+                    <div class="exp-item-name-row">
+                      <span class="exp-user-name">● Mei Ling Zhao</span>
+                      <span class="badge-tag-lime-sm">Pro Athletic</span>
+                    </div>
+                    <div class="exp-meta-row font-mono text-orange">
+                      <span>⚠️ Auto-Renew: Opted Out</span>
+                    </div>
+                  </div>
+                  <div class="exp-item-right">
+                    <span class="badge-expire-gray font-mono">Expires in 5 days</span>
+                    <button class="btn btn-lime-sm" onclick="triggerPromptAction('Mei Ling Zhao', 'Pro Athletic')">Prompt</button>
+                    <button class="btn-menu-dots font-mono" onclick="showToast('Options for Mei Ling Zhao')">•••</button>
+                  </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="expiring-item-card">
+                  <div class="exp-item-left">
+                    <div class="exp-item-name-row">
+                      <span class="exp-user-name">● Dante Cruz</span>
+                      <span class="badge-tag-purple-sm">Elite PT</span>
+                    </div>
+                    <div class="exp-meta-row font-mono text-muted">
+                      <span>🔄 Pending Confirmation</span>
+                    </div>
+                  </div>
+                  <div class="exp-item-right">
+                    <span class="badge-expire-gray font-mono">Expires in 7 days</span>
+                    <button class="btn btn-outline-dark-sm" onclick="triggerExtendAction('Dante Cruz', 'Elite PT')">Extend</button>
+                    <button class="btn-menu-dots font-mono" onclick="showToast('Options for Dante Cruz')">•••</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             PAGE 2: MEMBERS MANAGEMENT (#page-members) - FROM SCREENSHOT 4
+             ==================================================================== -->
+        <div id="page-members" class="admin-sub-page">
+          
+          <!-- Top 4 KPI Metrics -->
+          <div class="admin-kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">TOTAL ATHLETES</span>
+                <div class="kpi-icon-box kpi-icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row"><span class="kpi-big-num">1,842</span></div>
+              <div class="kpi-footer-row">
+                <div class="kpi-trend-badge green"><span>↗ +5.4% this cycle</span></div>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">CHECKED IN TODAY</span>
+                <div class="kpi-icon-box kpi-icon-purple">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path><line x1="8" y1="2" x2="8" y2="7"></line><line x1="16" y1="2" x2="16" y2="7"></line></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row"><span class="kpi-big-num">428</span></div>
+              <div class="kpi-footer-row">
+                <span class="font-mono text-muted text-xs">⚡ Real-time RFID feed</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">ELITE TIER RATIO</span>
+                <div class="kpi-icon-box kpi-icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row"><span class="kpi-big-num">46.8%</span></div>
+              <div class="kpi-footer-row">
+                <span class="font-mono text-lime text-xs">↑ +32 upgraded</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">PENDING MEDICAL WAIVERS</span>
+                <div class="kpi-icon-box kpi-icon-orange">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row"><span class="kpi-big-num text-orange">9</span></div>
+              <div class="kpi-footer-row">
+                <span class="font-mono text-orange text-xs">⚠️ Action required</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Page Header & Main Title Bar -->
+          <div class="member-dir-header">
+            <div>
+              <div class="dir-title-row">
+                <h1 class="page-main-title">Member Directory</h1>
+                <span class="badge-athletes-count font-mono">1,842 Athletes</span>
+                <span class="badge-telemetry-live font-mono"><span class="pulse-dot"></span> Telemetry Live</span>
+              </div>
+              <p class="panel-subtitle">Manage active athlete profiles, RFID biometric credentials, and assigned elite coaches.</p>
+            </div>
+            <button class="btn btn-lime" onclick="openAddMemberModal()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>+ Add Member</span>
+            </button>
+          </div>
+
+          <!-- Filter & Search Toolbar -->
+          <div class="members-toolbar-card">
+            <div class="filter-controls-left">
+              <div class="select-wrapper">
+                <select id="filter-member-plan" class="filter-dropdown">
+                  <option value="all">All Plans</option>
+                  <option value="elite">Elite Performance</option>
+                  <option value="pro">Pro Athlete</option>
+                  <option value="standard">Standard Access</option>
+                </select>
+              </div>
+
+              <div class="select-wrapper">
+                <select id="filter-member-status" class="filter-dropdown">
+                  <option value="all">All Statuses</option>
+                  <option value="active">Active</option>
+                  <option value="frozen">Frozen</option>
+                  <option value="expired">Expired</option>
+                </select>
+              </div>
+
+              <div class="select-wrapper">
+                <select id="filter-member-coach" class="filter-dropdown">
+                  <option value="all">Assigned Coach: All</option>
+                  <option value="marcus">Marcus Vance</option>
+                  <option value="elena">Elena Rostova</option>
+                  <option value="jax">Jax Thorne</option>
+                  <option value="maya">Maya Lin</option>
+                </select>
+              </div>
+
+              <div class="search-input-box">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="filter-member-search" placeholder="Search athlete by name, email, RFID...">
+              </div>
+            </div>
+
+            <div class="filter-controls-right">
+              <button class="btn btn-dark-toolbar" onclick="triggerBulkActions()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                <span>Bulk Actions ▾</span>
+              </button>
+              <button class="btn btn-dark-toolbar" onclick="exportMembersCSV()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Export CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Members Directory Table (Exact 8 Rows from Screenshot 4) -->
+          <div class="data-table-container">
+            <table class="member-directory-table" id="table-members">
+              <thead>
+                <tr>
+                  <th style="width: 40px;"><input type="checkbox" id="check-all-members" class="custom-checkbox"></th>
+                  <th>ATHLETE PROFILE</th>
+                  <th>MEMBER ID</th>
+                  <th>CONTACT</th>
+                  <th>MEMBERSHIP PLAN</th>
+                  <th>ASSIGNED COACH</th>
+                  <th>JOINED</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1: Kaelen Diaz -->
+                <tr data-plan="elite" data-status="active" data-coach="marcus">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">KD</div>
+                      <div>
+                        <div class="athlete-name">Kaelen Diaz</div>
+                        <div class="athlete-email">kaelen.diaz@apexspeed.io</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8921</td>
+                  <td class="font-mono text-muted">+1 (415) 890-2134</td>
+                  <td><span class="badge-plan-purple">⚡ Elite Performance</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">MV</div>
+                      <span>Marcus Vance</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Jan 14, 2023</td>
+                  <td><span class="badge-status-dot green">● Active</span></td>
+                </tr>
+
+                <!-- Row 2: Zara Lindqvist -->
+                <tr data-plan="pro" data-status="active" data-coach="elena">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">ZL</div>
+                      <div>
+                        <div class="athlete-name">Zara Lindqvist</div>
+                        <div class="athlete-email">zara.lind@nordicfit.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8919</td>
+                  <td class="font-mono text-muted">+1 (312) 441-9023</td>
+                  <td><span class="badge-plan-lime">⚡ Pro Athlete</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">ER</div>
+                      <span>Elena Rostova</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Apr 02, 2023</td>
+                  <td><span class="badge-status-dot green">● Active</span></td>
+                </tr>
+
+                <!-- Row 3: Tariq Al-Mansoor -->
+                <tr data-plan="elite" data-status="frozen" data-coach="jax">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">TA</div>
+                      <div>
+                        <div class="athlete-name">Tariq Al-Mansoor</div>
+                        <div class="athlete-email">tariq.am@velocitylab.ae</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8874</td>
+                  <td class="font-mono text-muted">+1 (846) 555-7819</td>
+                  <td><span class="badge-plan-purple">⚡ Elite Performance</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">JT</div>
+                      <span>Jax Thorne</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Nov 19, 2022</td>
+                  <td><span class="badge-status-dot purple">● Frozen</span></td>
+                </tr>
+
+                <!-- Row 4: Chloe St. Pierre -->
+                <tr data-plan="standard" data-status="expired" data-coach="maya">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">CS</div>
+                      <div>
+                        <div class="athlete-name">Chloe St. Pierre</div>
+                        <div class="athlete-email">c.stpierre@designgrid.ca</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8750</td>
+                  <td class="font-mono text-muted">+1 (514) 782-9904</td>
+                  <td><span class="badge-plan-gray">🛡️ Standard Access</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">ML</div>
+                      <span>Maya Lin</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Aug 05, 2023</td>
+                  <td><span class="badge-status-dot red">● Expired</span></td>
+                </tr>
+
+                <!-- Row 5: Kenji Watanabe -->
+                <tr data-plan="elite" data-status="active" data-coach="jax">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">KW</div>
+                      <div>
+                        <div class="athlete-name">Kenji Watanabe</div>
+                        <div class="athlete-email">k.watanabe@tokyotrack.jp</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8633</td>
+                  <td class="font-mono text-muted">+1 (206) 914-3312</td>
+                  <td><span class="badge-plan-purple">⚡ Elite Performance</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">JT</div>
+                      <span>Jax Thorne</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Jun 11, 2023</td>
+                  <td><span class="badge-status-dot green">● Active</span></td>
+                </tr>
+
+                <!-- Row 6: Amani Osei -->
+                <tr data-plan="pro" data-status="active" data-coach="elena">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">AO</div>
+                      <div>
+                        <div class="athlete-name">Amani Osei</div>
+                        <div class="athlete-email">amani.osei@ironforge.org</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8512</td>
+                  <td class="font-mono text-muted">+1 (404) 732-1188</td>
+                  <td><span class="badge-plan-lime">⚡ Pro Athlete</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">ER</div>
+                      <span>Elena Rostova</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Sep 28, 2023</td>
+                  <td><span class="badge-status-dot green">● Active</span></td>
+                </tr>
+
+                <!-- Row 7: Lucas Moretti -->
+                <tr data-plan="standard" data-status="active" data-coach="marcus">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">LM</div>
+                      <div>
+                        <div class="athlete-name">Lucas Moretti</div>
+                        <div class="athlete-email">l.moretti@pulsecycle.it</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8490</td>
+                  <td class="font-mono text-muted">+1 (305) 991-0428</td>
+                  <td><span class="badge-plan-gray">🛡️ Standard Access</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">MV</div>
+                      <span>Marcus Vance</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Oct 14, 2023</td>
+                  <td><span class="badge-status-dot green">● Active</span></td>
+                </tr>
+
+                <!-- Row 8: Seraphina Croft -->
+                <tr data-plan="elite" data-status="active" data-coach="maya">
+                  <td><input type="checkbox" class="custom-checkbox row-select"></td>
+                  <td>
+                    <div class="athlete-profile-cell">
+                      <div class="athlete-avatar">SC</div>
+                      <div>
+                        <div class="athlete-name">Seraphina Croft</div>
+                        <div class="athlete-email">s.croft@vanguardmotion.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono member-id-tag">#FT-8321</td>
+                  <td class="font-mono text-muted">+1 (720) 412-9014</td>
+                  <td><span class="badge-plan-purple">⚡ Elite Performance</span></td>
+                  <td>
+                    <div class="coach-meta-cell">
+                      <div class="coach-avatar">ML</div>
+                      <span>Maya Lin</span>
+                    </div>
+                  </td>
+                  <td class="font-mono text-muted">Dec 01, 2023</td>
+                  <td><span class="badge-status-dot green">● Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Table Pagination Bar -->
+            <div class="table-pagination-footer">
+              <span class="font-mono text-muted text-xs">Showing 1-8 of 1,842 members</span>
+              <div class="pagination-btn-group">
+                <button class="pag-btn" title="Previous Page">&lt;</button>
+                <button class="pag-btn active">1</button>
+                <button class="pag-btn">2</button>
+                <button class="pag-btn">3</button>
+                <span class="pag-dots">...</span>
+                <button class="pag-btn">231</button>
+                <button class="pag-btn" title="Next Page">&gt;</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             PAGE 4: MEMBERSHIPS & SUBSCRIPTIONS (#page-memberships) - SCREENSHOT 2
+             ==================================================================== -->
+        <div id="page-memberships" class="admin-sub-page">
+          
+          <!-- Subheader / Tier Architecture -->
+          <div class="subpage-header-block">
+            <div class="telemetry-live-pill font-mono text-lime">
+              <span class="pulse-dot"></span>
+              <span>TIER ARCHITECTURE v2.8 Live Billing Engine</span>
+            </div>
+
+            <div class="header-action-row">
+              <div>
+                <h1 class="page-main-title">Membership Plans &amp; Subscriptions</h1>
+                           <div class="mrr-metric-box">
+                  <div class="mrr-item">
+                    <span class="mrr-label font-mono">MRR DYNAMIC</span>
+                    <span class="mrr-val font-mono">₹21,85,400</span>
+                  </div>
+                  <div class="mrr-item">
+                    <span class="mrr-label font-mono">TOTAL ACTIVE</span>
+                    <span class="mrr-val font-mono">1,842 <span class="text-lime text-xs">↑ 8.4%</span></span>
+                  </div>
+                </div>
+                <button class="btn btn-dark-toolbar" onclick="showToast('Exporting subscription profiles...')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Subscriptions</span>
+                </button>
+                <button class="btn btn-lime" onclick="openNewSubscriptionModal()">
+                  <span>+ New Subscription</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Membership Tier Cards Grid (Image 2) -->
+          <div class="tier-cards-grid">
+            
+            <!-- Card 1: Basic Access -->
+            <div class="tier-plan-card">
+              <div class="tier-card-header">
+                <span class="tier-badge-dark">● STARTER TIER</span>
+                <span class="tier-badge-sub font-mono">Standard</span>
+              </div>
+              <h3 class="tier-plan-title">Basic Access</h3>
+              <p class="tier-plan-desc">Essential facility privileges for single-session and self-paced lifters.</p>
+              
+              <div class="tier-pricing-row">
+                <span class="tier-price-symbol">₹</span>
+                <span class="tier-price-val">2,499</span>
+                <span class="tier-price-cycle font-mono">/ month</span>
+                <span class="tier-badge-cycle font-mono">1-Mo Cycle</span>
+              </div>
+
+              <div class="tier-subscribers-bar font-mono">
+                <span class="sub-count-bold">320</span>
+                <span class="sub-count-label">members</span>
+              </div>
+
+              <ul class="tier-features-list">
+                <li class="feat-item"><span class="feat-check text-lime">✓</span> RFID Gym floor turnstile access</li>
+                <li class="feat-item"><span class="feat-check text-lime">✓</span> Day-use locker &amp; shower bays</li>
+                <li class="feat-item"><span class="feat-check text-lime">✓</span> FitTrack mobile app logbook</li>
+                <li class="feat-item text-dim"><span class="feat-cross">✕</span> Group cardio &amp; HIIT studios</li>
+              </ul>
+
+              <div class="tier-card-actions">
+                <button class="btn btn-dark-full" onclick="openEditPlanModal('Basic Access', 2499)">Edit Plan</button>
+                <button class="btn-tier-settings" title="Tier Configuration" onclick="showToast('Advanced rules for Basic Access')">⚙</button>
+              </div>
+            </div>
+
+            <!-- Card 2: Performance Pro (FEATURED / HIGHLIGHTED IN LIME) -->
+            <div class="tier-plan-card featured-pro-card">
+              <div class="tier-card-header">
+                <span class="tier-badge-lime">★ MOST POPULAR</span>
+                <span class="tier-badge-pro font-mono">TIER PRO</span>
+              </div>
+              <h3 class="tier-plan-title">Performance Pro</h3>
+              <p class="tier-plan-desc">Complete 24/7 athletic autonomy with functional group classes included.</p>
+
+              <div class="tier-pricing-row">
+                <span class="tier-price-symbol text-lime">₹</span>
+                <span class="tier-price-val text-lime">4,999</span>
+                <span class="tier-price-cycle font-mono">/ month</span>
+                <span class="tier-badge-cycle font-mono">1-Mo Cycle</span>
+              </div>
+
+              <div class="tier-subscribers-bar font-mono">
+                <span class="sub-count-bold text-lime">994</span>
+                <span class="sub-count-label text-lime">members</span>
+              </div>
+
+              <ul class="tier-features-list">
+                <li class="feat-item"><span class="feat-check text-lime">✓</span> 24/7 All-Facility Access Key</li>
+                <li class="feat-item"><span class="feat-check text-lime">✓</span> Unlimited Group HIIT &amp; Spin Classes</li>
+                <li class="feat-item"><span class="feat-check text-lime">✓</span> 1 Biometric DEXA scan / month</li>
+                <li class="feat-item"><span class="feat-check text-lime">✓</span> 1 Complimentary monthly guest pass</li>
+              </ul>
+
+              <div class="tier-card-actions">
+                <button class="btn btn-lime-full" onclick="openEditPlanModal('Performance Pro', 4999)">Edit Plan</button>
+                <button class="btn-tier-settings" title="Tier Configuration" onclick="showToast('Advanced rules for Performance Pro')">⚙</button>
+              </div>
+            </div>
+
+            <!-- Card 3: Elite Conditioning (PURPLE THEME) -->
+            <div class="tier-plan-card elite-card">
+              <div class="tier-card-header">
+                <span class="tier-badge-purple">RECOVERY &amp; PT</span>
+                <span class="tier-badge-vip font-mono">TIER VIP</span>
+              </div>
+              <h3 class="tier-plan-title">Elite Conditioning</h3>
+              <p class="tier-plan-desc">Bespoke athletic protocol with dedicated coaching and bio-thermal spa lounge.</p>
+
+              <div class="tier-pricing-row">
+                <span class="tier-price-symbol text-purple">₹</span>
+                <span class="tier-price-val text-purple">9,999</span>
+                <span class="tier-price-cycle font-mono">/ month</span>
+                <span class="tier-badge-cycle font-mono">1-Mo Cycle</span>
+              </div>
+
+              <div class="tier-subscribers-bar font-mono">
+                <span class="sub-count-bold text-purple">528</span>
+                <span class="sub-count-label text-purple">members</span>
+              </div>
+
+              <ul class="tier-features-list">
+                <li class="feat-item"><span class="feat-check text-purple">✓</span> VIP Recovery Lounge &amp; Sauna</li>
+                <li class="feat-item"><span class="feat-check text-purple">✓</span> Unlimited Cold Plunge &amp; Cryo</li>
+                <li class="feat-item"><span class="feat-check text-purple">✓</span> 2 Dedicated 1-on-1 PT sessions/mo</li>
+                <li class="feat-item"><span class="feat-check text-purple">✓</span> Monthly Sports Nutrition Blueprint</li>
+              </ul>
+
+              <div class="tier-card-actions">
+                <button class="btn btn-purple-full" onclick="openEditPlanModal('Elite Conditioning', 9999)">Edit Plan</button>
+                <button class="btn-tier-settings" title="Tier Configuration" onclick="showToast('Advanced rules for Elite Conditioning')">⚙</button>
+              </div>
+            </div>
+
+            <!-- Card 4: Create Custom Tier (DASHED BORDER BUILDER) -->
+            <div class="tier-plan-card custom-builder-card">
+              <div class="tier-card-header" style="justify-content: flex-end;">
+                <span class="tier-badge-dark">Custom Offer</span>
+              </div>
+
+              <div class="custom-builder-body">
+                <div class="builder-plus-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </div>
+                <h3 class="tier-plan-title">Create Custom Tier</h3>
+                <p class="tier-plan-desc">Set up corporate passes, student discounts, seasonal promotions, or custom term commitments with automated billing cycles.</p>
+                <div class="builder-tag font-mono">
+                  <span>☰ Granular Access Rules &amp; Caps</span>
+                </div>
+              </div>
+
+              <button class="btn btn-dark-full" onclick="openCreateCustomTierModal()">+ New Plan Builder</button>
+            </div>
+
+          </div>
+
+          <!-- All Active Contracts Section (Image 2) -->
+          <div class="contracts-section-wrapper">
+            <div class="contracts-header-row">
+              <div>
+                <h3 class="panel-title">All Active Contracts</h3>
+                <p class="panel-subtitle">Real-time ledger of subscriber renewal states, auto-charge cycles, and billing mandates.</p>
+              </div>
+
+              <!-- Filter Bar -->
+              <div class="contracts-filter-bar">
+                <div class="contracts-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="contracts-search" placeholder="Search by name, email...">
+                </div>
+
+                <div class="contracts-tab-pills">
+                  <button class="contract-tab active" data-filter="all">All</button>
+                  <button class="contract-tab" data-filter="basic">Basic</button>
+                  <button class="contract-tab" data-filter="pro">Pro</button>
+                  <button class="contract-tab" data-filter="elite">Elite</button>
+                </div>
+
+                <select id="contracts-renew-filter" class="filter-dropdown-sm">
+                  <option value="all">Auto-Renew: All</option>
+                  <option value="on">Auto-Renew: ON</option>
+                  <option value="off">Auto-Renew: OFF</option>
+                </select>
+
+                <button class="btn-icon-subtle" title="Refresh Contracts" onclick="refreshContracts()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Contracts Table -->
+            <div class="data-table-container">
+              <table class="contracts-table" id="table-contracts">
+                <thead>
+                  <tr>
+                    <th>SUBSCRIBER</th>
+                    <th>TIER</th>
+                    <th>START DATE</th>
+                    <th>NEXT RENEWAL</th>
+                    <th>FREQUENCY</th>
+                    <th>AUTO-RENEW</th>
+                    <th>AMOUNT</th>
+                    <th>STATUS</th>
+                    <th style="text-align: right;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Row 1: Elena Rostova -->
+                  <tr data-tier="elite" data-renew="on">
+                    <td>
+                      <div class="athlete-profile-cell">
+                        <div class="athlete-avatar">ER</div>
+                        <div>
+                          <div class="athlete-name">Elena Rostova</div>
+                          <div class="athlete-email">elena.rostova@nexusfit.com</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge-tag-purple font-mono">Elite VIP</span></td>
+                    <td class="font-mono text-muted">2023-11-14</td>
+                    <td class="font-mono text-muted">2024-04-14</td>
+                    <td class="font-mono text-muted">Monthly (1-mo)</td>
+                    <td>
+                      <label class="switch-toggle">
+                        <input type="checkbox" checked onchange="toggleAutoRenew(this, 'Elena Rostova')">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td class="font-mono font-bold">₹9,999.00</td>
+                    <td><span class="badge-status-dot green">● Active</span></td>
+                    <td style="text-align: right;"><button class="btn-menu-dots font-mono" onclick="showToast('Contract options for Elena Rostova')">⋮</button></td>
+                  </tr>
+
+                  <!-- Row 2: Marcus Brody -->
+                  <tr data-tier="pro" data-renew="on">
+                    <td>
+                      <div class="athlete-profile-cell">
+                        <div class="athlete-avatar">MB</div>
+                        <div>
+                          <div class="athlete-name">Marcus Brody</div>
+                          <div class="athlete-email">m.brody@apexathletics.io</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge-tag-lime font-mono">Pro Tier</span></td>
+                    <td class="font-mono text-muted">2023-01-02</td>
+                    <td class="font-mono text-muted">2024-04-02</td>
+                    <td class="font-mono text-muted">Monthly (1-mo)</td>
+                    <td>
+                      <label class="switch-toggle">
+                        <input type="checkbox" checked onchange="toggleAutoRenew(this, 'Marcus Brody')">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td class="font-mono font-bold">₹4,999.00</td>
+                    <td><span class="badge-status-dot green">● Active</span></td>
+                    <td style="text-align: right;"><button class="btn-menu-dots font-mono" onclick="showToast('Contract options for Marcus Brody')">⋮</button></td>
+                  </tr>
+
+                  <!-- Row 3: Sophia Chen -->
+                  <tr data-tier="pro" data-renew="on">
+                    <td>
+                      <div class="athlete-profile-cell">
+                        <div class="athlete-avatar">SC</div>
+                        <div>
+                          <div class="athlete-name">Sophia Chen</div>
+                          <div class="athlete-email">schen@biomed.tech</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge-tag-lime font-mono">Pro Tier</span></td>
+                    <td class="font-mono text-muted">2023-08-19</td>
+                    <td class="font-mono text-muted">2024-03-29</td>
+                    <td class="font-mono text-muted">Monthly (1-mo)</td>
+                    <td>
+                      <label class="switch-toggle">
+                        <input type="checkbox" checked onchange="toggleAutoRenew(this, 'Sophia Chen')">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td class="font-mono font-bold">₹4,999.00</td>
+                    <td><span class="badge-status-tag purple font-mono">Pending Renewal</span></td>
+                    <td style="text-align: right;"><button class="btn-menu-dots font-mono" onclick="showToast('Contract options for Sophia Chen')">⋮</button></td>
+                  </tr>
+
+                  <!-- Row 4: Liam Vance -->
+                  <tr data-tier="basic" data-renew="off">
+                    <td>
+                      <div class="athlete-profile-cell">
+                        <div class="athlete-avatar">LV</div>
+                        <div>
+                          <div class="athlete-name">Liam Vance</div>
+                          <div class="athlete-email">liam.vance@vancamedia.co</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge-tag-gray font-mono">Basic</span></td>
+                    <td class="font-mono text-muted">2022-12-05</td>
+                    <td class="font-mono text-muted">2024-03-25</td>
+                    <td class="font-mono text-muted">Monthly (1-mo)</td>
+                    <td>
+                      <label class="switch-toggle">
+                        <input type="checkbox" onchange="toggleAutoRenew(this, 'Liam Vance')">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td class="font-mono font-bold">₹2,499.00</td>
+                    <td><span class="badge-status-tag red font-mono">Past Due</span></td>
+                    <td style="text-align: right;"><button class="btn-menu-dots font-mono" onclick="showToast('Contract options for Liam Vance')">⋮</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             PAGE 5: PAYMENTS & FINANCIAL OPERATIONS (#page-payments) - SCREENSHOT 1
+             ==================================================================== -->
+        <div id="page-payments" class="admin-sub-page">
+          
+          <!-- Subheader / Financial Ledger Banner -->
+          <div class="subpage-header-block">
+            <div class="telemetry-live-pill font-mono text-purple">
+              <span class="pulse-dot" style="background:#9d4edf; box-shadow: 0 0 8px #9d4edf;"></span>
+              <span>FINANCIAL LEDGER &bull; SIMULATED UPI &amp; POS MESH #LIVE-8821</span>
+            </div>
+
+            <div class="header-action-row">
+              <div>
+                <h1 class="page-main-title">Payments &amp; Financial Operations</h1>
+                <p class="panel-subtitle">Simulated transaction tracking, automated dunning recovery, and subscription revenue telemetry across Indian fitness campuses.</p>
+              </div>
+
+              <div class="financial-action-btns">
+                <button class="btn btn-dark-toolbar" onclick="downloadFinancialReport()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Download Financial Report</span>
+                </button>
+                <button class="btn btn-lime" onclick="openRecordPaymentModal()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Record Manual Payment</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top 4 KPI Metrics (Screenshot 1) -->
+          <div class="admin-kpi-grid">
+            
+            <!-- KPI 1: Total Revenue (YTD) -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">TOTAL REVENUE (YTD)</span>
+                <div class="kpi-icon-box kpi-icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num" id="stat-total-revenue">₹0.00 <span class="kpi-currency">INR</span></span>
+              </div>
+              <div class="kpi-footer-row">
+                <div class="kpi-trend-badge green">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 17 17 7 17 17"></polyline><line x1="7" y1="7" x2="17" y2="7"></line></svg>
+                  <span>Active Ledger</span>
+                </div>
+                <span class="kpi-sub-text" id="stat-prior-revenue">Lifetime settled</span>
+              </div>
+            </div>
+
+            <!-- KPI 2: Pending Dues & Grace -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">PENDING DUES &amp; GRACE</span>
+                <div class="kpi-icon-box kpi-icon-purple">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num" id="stat-pending-dues">₹0.00 <span class="kpi-unit font-mono" id="stat-pending-count">0 accts</span></span>
+              </div>
+              <div class="kpi-footer-row">
+                <span class="badge-tag-purple-sm font-mono">Dunning Queue</span>
+                <span class="kpi-sub-text" id="stat-pending-sub">Awaiting settlement</span>
+              </div>
+            </div>
+
+            <!-- KPI 3: Processed Refunds -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">PROCESSED REFUNDS</span>
+                <div class="kpi-icon-box kpi-icon-cyan">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num" id="stat-refunds-total">₹0.00 <span class="kpi-unit font-mono" id="stat-refunds-count">0 txns</span></span>
+              </div>
+              <div class="kpi-footer-row">
+                <span class="badge-tag-gray font-mono">0.0% Volume</span>
+                <span class="kpi-sub-text" id="stat-refunds-sub">Verified refund ledger</span>
+              </div>
+            </div>
+
+            <!-- KPI 4: This Month Collection -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label font-mono">THIS MONTH COLLECTION</span>
+                <div class="kpi-icon-box kpi-icon-lime">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+              </div>
+              <div class="kpi-value-row">
+                <span class="kpi-big-num" id="stat-month-collection">₹0.00 <span class="kpi-unit font-mono text-lime" id="stat-month-pct">Live</span></span>
+              </div>
+              <div class="kpi-footer-row">
+                <span class="badge-tag-lime font-mono">⚡ Current Month</span>
+                <span class="kpi-sub-text" id="stat-month-sub">Current calendar month</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Middle Row: Monthly Collections Run-Rate Bar Chart & Payment Channels (Screenshot 1) -->
+          <div class="payments-middle-grid">
+            
+            <!-- Left Card: Monthly Collections Run-Rate Bar Chart -->
+            <div class="chart-panel-card">
+              <div class="panel-header-row">
+                <div>
+                  <div class="panel-title-with-dot">
+                    <span class="panel-dot-lime"></span>
+                    <h3 class="panel-title">Monthly Collections Run-Rate</h3>
+                  </div>
+                  <p class="panel-subtitle">12-Month cadence comparing Automated Recurring vs Manual/Desk Settlement</p>
+                </div>
+
+                <div class="chart-legend-row">
+                  <div class="legend-chip">
+                    <span class="legend-color-box" style="background:#c6ff00;"></span>
+                    <span class="font-mono text-xs">Automated (UPI/e-NACH)</span>
+                  </div>
+                  <div class="legend-chip">
+                    <span class="legend-color-box" style="background:#2d3748;"></span>
+                    <span class="font-mono text-xs">Manual / POS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 12-Month Bar Chart (SVG) with November Target Marker -->
+              <div class="barchart-container">
+                <svg viewBox="0 0 680 230" class="responsive-svg-chart" preserveAspectRatio="none">
+                  <!-- Horizontal Grid Lines & Labels -->
+                  <text x="10" y="30" fill="#475569" font-size="10" font-family="JetBrains Mono">₹1L</text>
+                  <line x1="45" y1="26" x2="670" y2="26" stroke="#1c232c" stroke-dasharray="2 3"/>
+
+                  <text x="10" y="80" fill="#475569" font-size="10" font-family="JetBrains Mono">₹75k</text>
+                  <line x1="45" y1="76" x2="670" y2="76" stroke="#1c232c" stroke-dasharray="2 3"/>
+
+                  <text x="10" y="130" fill="#475569" font-size="10" font-family="JetBrains Mono">₹50k</text>
+                  <line x1="45" y1="126" x2="670" y2="126" stroke="#1c232c" stroke-dasharray="2 3"/>
+
+                  <text x="10" y="180" fill="#475569" font-size="10" font-family="JetBrains Mono">₹25k</text>
+                  <line x1="45" y1="176" x2="670" y2="176" stroke="#1c232c" stroke-dasharray="2 3"/>
+
+                  <!-- Bottom Baseline -->
+                  <line x1="45" y1="200" x2="670" y2="200" stroke="#222a36"/>
+
+                  <!-- JAN: 42k -->
+                  <rect x="60" y="125" width="16" height="75" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- FEB: 48k -->
+                  <rect x="110" y="115" width="16" height="85" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- MAR: 54k -->
+                  <rect x="160" y="105" width="16" height="95" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- APR: 57k -->
+                  <rect x="210" y="98" width="16" height="102" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- MAY: 61k -->
+                  <rect x="260" y="90" width="16" height="110" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- JUN: 64k -->
+                  <rect x="310" y="84" width="16" height="116" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- JUL: 68k -->
+                  <rect x="360" y="76" width="16" height="124" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- AUG: 71k -->
+                  <rect x="410" y="70" width="16" height="130" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- SEP: 75k -->
+                  <rect x="460" y="62" width="16" height="138" rx="4" fill="#a8e000" opacity="0.85"/>
+                  <!-- OCT: 78k -->
+                  <rect x="510" y="56" width="16" height="144" rx="4" fill="#a8e000" opacity="0.85"/>
+                  
+                  <!-- NOV (ACTIVE RECORD BAR): 84k -> Illuminated Neon Lime with Glowing Stroke -->
+                  <rect x="560" y="44" width="18" height="156" rx="4" fill="#c6ff00" filter="url(#glowEffect)"/>
+
+                  <!-- NOV Floating Target Tooltip & Callout -->
+                  <line x1="569" y1="44" x2="569" y2="18" stroke="#c6ff00" stroke-width="1.5"/>
+                  <circle cx="569" cy="44" r="4" fill="#c6ff00"/>
+                  <rect x="525" y="4" width="95" height="16" rx="8" fill="#13171e" stroke="#c6ff00" stroke-width="1"/>
+                  <text x="572" y="15" fill="#c6ff00" font-size="8.5" font-weight="bold" font-family="JetBrains Mono" text-anchor="middle">TARGET ₹8,51,100</text>
+
+                  <!-- DEC+ (Projected): 88k -->
+                  <rect x="615" y="36" width="16" height="164" rx="4" fill="#2d3748" opacity="0.6"/>
+                </svg>
+
+                <!-- Month labels -->
+                <div class="barchart-labels font-mono">
+                  <span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span>
+                  <span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span><span class="active-nov">NOV</span><span>DEC+</span>
+                </div>
+              </div>
+
+              <!-- Settlement Telemetry Banner Footer -->
+              <div class="settlement-telemetry-banner">
+                <div class="st-left">
+                  <span class="text-lime font-bold">✓</span>
+                  <span class="font-mono text-xs">98.8% on-time settlement via UPI 2.0 and IMPS / Card Batch Settlement</span>
+                </div>
+                <div class="st-right font-mono text-xs text-muted">
+                  NEXT AUTO-DEBIT WAVE: <span class="text-white font-bold">DEC 1, 00:00 UTC</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Card: Payment Channels (Screenshot 1) -->
+            <div class="chart-panel-card flex-col-between">
+              <div>
+                <div class="panel-header-row">
+                  <div>
+                    <h3 class="panel-title">Payment Channels</h3>
+                    <p class="panel-subtitle">Volume split by processing route &amp; checkout velocity.</p>
+                  </div>
+                  <span class="badge-uptime-lime font-mono">● 99.99% UPTIME</span>
+                </div>
+
+                <!-- Gate Header Box -->
+                <div class="gate-mesh-box">
+                  <div class="gate-mesh-left">
+                    <span class="mesh-icon">🌐</span>
+                    <div>
+                      <div class="gate-mesh-name">NPCI UPI / Razorpay Mesh</div>
+                      <div class="gate-mesh-sub">Primary Gate India (Mumbai DC)</div>
+                    </div>
+                  </div>
+                  <div class="gate-mesh-right font-mono text-lime">
+                    <span class="latency-val">142ms</span>
+                    <span class="latency-sub text-muted">p95 Latency</span>
+                  </div>
+                </div>
+
+                <!-- Channel Breakdown Progress Bars -->
+                <div class="channel-bars-list">
+                  
+                  <!-- Channel 1: Credit & Debit Cards -->
+                  <div class="channel-bar-item">
+                    <div class="channel-info-row">
+                      <div class="channel-name-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                        <span>RuPay / Card Terminals</span>
+                      </div>
+                      <span class="channel-stat font-mono"><strong id="channel-pct-card">0%</strong> <span class="text-muted" id="channel-amt-card">(₹0.00)</span></span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill fill-lime" id="channel-fill-card" style="width: 0%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Channel 2: Direct Debit / e-NACH Core -->
+                  <div class="channel-bar-item">
+                    <div class="channel-info-row">
+                      <div class="channel-name-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"></path></svg>
+                        <span>e-NACH AutoPay / NetBanking</span>
+                      </div>
+                      <span class="channel-stat font-mono"><strong id="channel-pct-enach">0%</strong> <span class="text-muted" id="channel-amt-enach">(₹0.00)</span></span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill fill-purple" id="channel-fill-enach" style="width: 0%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Channel 3: UPI / QR Payment -->
+                  <div class="channel-bar-item">
+                    <div class="channel-info-row">
+                      <div class="channel-name-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                        <span>UPI / QR (GPay / PhonePe)</span>
+                      </div>
+                      <span class="channel-stat font-mono"><strong id="channel-pct-upi">0%</strong> <span class="text-muted" id="channel-amt-upi">(₹0.00)</span></span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill fill-cyan" id="channel-fill-upi" style="width: 0%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Channel 4: Front Desk Terminal / Cash -->
+                  <div class="channel-bar-item">
+                    <div class="channel-info-row">
+                      <div class="channel-name-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        <span>Front Desk Terminal / Cash</span>
+                      </div>
+                      <span class="channel-stat font-mono"><strong id="channel-pct-cash">0%</strong> <span class="text-muted" id="channel-amt-cash">(₹0.00)</span></span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill fill-gray" id="channel-fill-cash" style="width: 0%;"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Footer link -->
+              <a href="#" class="sepa-link-footer font-mono" onclick="showToast('UPI QR Zero-Fee details opened')">
+                <span>Zero fee processing on UPI QR payment batches</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Bottom Section: Live Transaction Stream (Screenshot 1) -->
+          <div class="transaction-stream-wrapper">
+            <div class="stream-header-row">
+              <div>
+                <div class="panel-title-with-badge">
+                  <h3 class="panel-title">Live Transaction Stream</h3>
+                  <span class="badge-total-stream font-mono" id="stream-total-badge">0 TOTAL</span>
+                </div>
+                <p class="panel-subtitle">Audit-ready continuous ledger with microsecond event logs</p>
+              </div>
+
+              <!-- Filter Controls: Date, Method, Search -->
+              <div class="stream-filters-row">
+                <div class="select-wrapper">
+                  <select id="filter-tx-date" class="filter-dropdown-sm">
+                    <option>📅 Current Ledger</option>
+                    <option>📅 Lifetime Ledger</option>
+                  </select>
+                </div>
+
+                <div class="select-wrapper">
+                  <select id="filter-tx-method" class="filter-dropdown-sm" onchange="filterTransactions()">
+                    <option value="all">Method: All</option>
+                    <option value="card">Credit / Debit / RuPay</option>
+                    <option value="enach">e-NACH / NetBanking</option>
+                    <option value="upi">UPI (GPay / PhonePe)</option>
+                    <option value="cash">Terminal Cash POS</option>
+                  </select>
+                </div>
+
+                <div class="search-input-box-sm">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="filter-tx-search" placeholder="Filter by Invoice ID or member..." oninput="filterTransactions()">
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Tabs (Screenshot 1): All, Paid, Pending, Failed, Refunded -->
+            <div class="tx-status-tabs-bar">
+              <button class="tx-status-tab active" data-status="all" onclick="setTxStatusFilter('all', this)">
+                <span>All</span> <span class="tab-count font-mono" id="tab-count-all">0</span>
+              </button>
+              <button class="tx-status-tab" data-status="paid" onclick="setTxStatusFilter('paid', this)">
+                <span class="status-dot-green">●</span> <span>Paid</span> <span class="tab-count font-mono" id="tab-count-paid">0</span>
+              </button>
+              <button class="tx-status-tab" data-status="pending" onclick="setTxStatusFilter('pending', this)">
+                <span class="status-dot-yellow">●</span> <span>Pending</span> <span class="tab-count font-mono" id="tab-count-pending">0</span>
+              </button>
+              <button class="tx-status-tab" data-status="failed" onclick="setTxStatusFilter('failed', this)">
+                <span class="status-dot-red">●</span> <span>Failed</span> <span class="tab-count font-mono" id="tab-count-failed">0</span>
+              </button>
+              <button class="tx-status-tab" data-status="refunded" onclick="setTxStatusFilter('refunded', this)">
+                <span class="status-dot-gray">●</span> <span>Refunded</span> <span class="tab-count font-mono" id="tab-count-refunded">0</span>
+              </button>
+            </div>
+
+            <!-- Live Transaction Table -->
+            <div class="data-table-container">
+              <table class="transaction-table" id="table-transactions">
+                <thead>
+                  <tr>
+                    <th>INVOICE ID</th>
+                    <th>MEMBER</th>
+                    <th>PLAN / DESCRIPTION</th>
+                    <th>AMOUNT</th>
+                    <th>METHOD</th>
+                    <th>DATE &amp; TIME</th>
+                    <th>STATUS</th>
+                    <th style="text-align: right;">INVOICE</th>
+                  </tr>
+                </thead>
+                <tbody id="tx-table-body">
+                  <tr>
+                    <td colspan="8" style="text-align: center; padding: 2.5rem; color: var(--text-muted); font-family: var(--font-mono);">
+                      Loading live payment transactions from MySQL...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             PAGE 3: TRAINERS & COACHES (#page-trainers)
+             ==================================================================== -->
+        <div id="page-trainers" class="admin-sub-page">
+          <div class="subpage-header-block">
+            <div class="header-action-row">
+              <div>
+                <h1 class="page-main-title">Trainer Management &amp; Roster</h1>
+                <p class="panel-subtitle">Monitor coach performance, athlete load, commission splits, and floor schedules.</p>
+              </div>
+              <button class="btn btn-lime" onclick="openModal('Add Coach Profile', 'Configure trainer specialization and squad bays.', 'Create Profile')">+ Add Trainer</button>
+            </div>
+          </div>
+
+          <div class="trainers-grid-showcase">
+            <div class="trainer-showcase-card">
+              <div class="tsc-img-wrap"><img src="./assets/trainer-elena.png" alt="Elena Rostova"></div>
+              <div class="tsc-body">
+                <div class="tsc-tag-row"><span class="badge-tag-lime-sm">ACTIVE</span><span class="font-mono text-lime font-bold">★ 5.0</span></div>
+                <h3 class="tsc-name">Elena Rostova</h3>
+                <div class="tsc-meta">Specialist: <strong>Functional Hypertrophy</strong></div>
+                <div class="tsc-stats font-mono">Client Load: <strong>34/35 (97%)</strong><br>Monthly Rev: <strong>₹1,42,000</strong></div>
+                <button class="btn btn-dark-full" onclick="showToast('Roster timetable opened for Elena Rostova')">View Shift Schedule</button>
+              </div>
+            </div>
+
+            <div class="trainer-showcase-card">
+              <div class="tsc-img-wrap"><img src="./assets/trainer-marcus.png" alt="Marcus Vance"></div>
+              <div class="tsc-body">
+                <div class="tsc-tag-row"><span class="badge-tag-cyan font-mono" style="padding:0.1rem 0.4rem; font-size:0.65rem;">ON FLOOR</span><span class="font-mono text-lime font-bold">★ 4.9</span></div>
+                <h3 class="tsc-name">Marcus Vance</h3>
+                <div class="tsc-meta">Specialist: <strong>Olympic Weightlifting</strong></div>
+                <div class="tsc-stats font-mono">Client Load: <strong>28/30 (93%)</strong><br>Monthly Rev: <strong>₹1,24,000</strong></div>
+                <button class="btn btn-dark-full" onclick="showToast('Roster timetable opened for Marcus Vance')">View Shift Schedule</button>
+              </div>
+            </div>
+
+            <div class="trainer-showcase-card">
+              <div class="tsc-img-wrap"><img src="./assets/trainer-derrick.png" alt="Dr. Derrick Thorne"></div>
+              <div class="tsc-body">
+                <div class="tsc-tag-row"><span class="badge-tag-purple-sm">REHAB DPT</span><span class="font-mono text-lime font-bold">★ 4.9</span></div>
+                <h3 class="tsc-name">Dr. Derrick Thorne</h3>
+                <div class="tsc-meta">Specialist: <strong>Kinetic Recovery &amp; PT</strong></div>
+                <div class="tsc-stats font-mono">Client Load: <strong>22/25 (88%)</strong><br>Monthly Rev: <strong>₹1,10,000</strong></div>
+                <button class="btn btn-dark-full" onclick="showToast('Roster timetable opened for Dr. Derrick Thorne')">View Shift Schedule</button>
+              </div>
+            </div>
+
+            <div class="trainer-showcase-card">
+              <div class="tsc-img-wrap"><img src="./assets/trainer-aria.png" alt="Aria Kincaid"></div>
+              <div class="tsc-body">
+                <div class="tsc-tag-row"><span class="badge-tag-lime-sm">PRO COACH</span><span class="font-mono text-lime font-bold">★ 4.9</span></div>
+                <h3 class="tsc-name">Aria Kincaid</h3>
+                <div class="tsc-meta">Specialist: <strong>HIIT &amp; VO2 Conditioning</strong></div>
+                <div class="tsc-stats font-mono">Client Load: <strong>31/32 (96%)</strong><br>Monthly Rev: <strong>₹1,38,000</strong></div>
+                <button class="btn btn-dark-full" onclick="showToast('Roster timetable opened for Aria Kincaid')">View Shift Schedule</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             PAGE 6: ATTENDANCE & ACCESS TELEMETRY (#page-attendance)
+             ==================================================================== -->
+        <div id="page-attendance" class="admin-sub-page">
+          <div class="subpage-header-block">
+            <div class="header-action-row">
+              <div>
+                <h1 class="page-main-title">Attendance &amp; Facility Access Telemetry</h1>
+                <p class="panel-subtitle">Real-time turnstile sync, occupancy heatmaps, and RFID gate clearance.</p>
+              </div>
+              <div class="topbar-synced-badge"><span class="pulse-dot"></span><span>182 Check-ins / hr</span></div>
+            </div>
+          </div>
+
+          <div class="admin-kpi-grid">
+            <div class="kpi-card"><span class="kpi-label font-mono">TODAY'S TOTAL CHECK-INS</span><span class="kpi-big-num">418 Athletes</span></div>
+            <div class="kpi-card"><span class="kpi-label font-mono">PEAK TIME WINDOW</span><span class="kpi-big-num">17:30 - 19:30</span></div>
+            <div class="kpi-card"><span class="kpi-label font-mono">AVERAGE DWELL TIME</span><span class="kpi-big-num">78.2 mins</span></div>
+            <div class="kpi-card"><span class="kpi-label font-mono">GATE CLEARANCE</span><span class="kpi-big-num text-lime">100% (0 Rejects)</span></div>
+          </div>
+
+          <!-- Heatmap Matrix -->
+          <div class="chart-panel-card" style="margin-top: 1.5rem;">
+            <div class="panel-header-row">
+              <h3 class="panel-title">Facility Traffic Heatmap Matrix (Hourly vs Day of Week)</h3>
+              <span class="font-mono text-lime text-xs">Neon Glow = Peak Rush</span>
+            </div>
+            <div class="heatmap-grid-matrix">
+              <div class="heatmap-row-unit"><span class="day-label font-mono">MON</span><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-2"></div></div>
+              <div class="heatmap-row-unit"><span class="day-label font-mono">TUE</span><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-1"></div></div>
+              <div class="heatmap-row-unit"><span class="day-label font-mono">WED</span><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-1"></div></div>
+              <div class="heatmap-row-unit"><span class="day-label font-mono">THU</span><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div></div>
+              <div class="heatmap-row-unit"><span class="day-label font-mono">FRI</span><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div></div>
+              <div class="heatmap-row-unit"><span class="day-label font-mono">SAT</span><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-4"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div></div>
+              <div class="heatmap-row-unit"><span class="day-label font-mono">SUN</span><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-3"></div><div class="cell-slot lvl-2"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div><div class="cell-slot lvl-1"></div></div>
+            </div>
+          </div>
+
+          <!-- Automated Turnstile Simulator Widget -->
+          <div class="chart-panel-card" style="margin-top: 1.5rem; border: 1px solid var(--accent-lime); box-shadow: 0 0 25px rgba(212, 255, 0, 0.08);">
+            <div class="panel-header-row">
+              <div>
+                <div class="badge-tag" style="margin-bottom: 0.4rem;">HARDWARE SIMULATOR</div>
+                <h3 class="panel-title">Automated Turnstile Relay &amp; RFID Scanner Terminal</h3>
+                <p class="panel-subtitle">Simulate real-time NFC/RFID turnstile check-ins, automated membership validity verification, and anti-passback duplicate ingress prevention.</p>
+              </div>
+              <div class="status-pill">
+                <span class="pulse-dot"></span>
+                <span id="turnstile-gate-indicator" class="font-mono text-lime">GATE: READY (LOCKED)</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.25rem;">
+              <div>
+                <div class="form-group">
+                  <label class="form-label">SELECT ATHLETE / TEST BADGE</label>
+                  <select id="turnstile-member-select" class="form-input" onchange="handleTurnstileMemberChange(this)">
+                    <option value="#FT-8841" data-name="Marcus Brody">Marcus Brody (#FT-8841) — Elite Tier (Active)</option>
+                    <option value="#FT-8842" data-name="Kaelen Diaz">Kaelen Diaz (#FT-8842) — Pro Tier (Active)</option>
+                    <option value="#FT-8843" data-name="Zara Lindqvist">Zara Lindqvist (#FT-8843) — Pro Tier (Active)</option>
+                    <option value="#FT-8844" data-name="Chloe St. Pierre">Chloe St. Pierre (#FT-8844) — Basic Tier (Active)</option>
+                    <option value="#FT-8845" data-name="Liam Vance">Liam Vance (#FT-8845) — Pro Tier [EXPIRED - Will Reject]</option>
+                    <option value="CUSTOM">-- Custom RFID Badge Input --</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="turnstile-custom-input-group" style="display: none;">
+                  <label class="form-label">CUSTOM RFID TAG CODE</label>
+                  <input type="text" id="turnstile-rfid-input" class="form-input font-mono" value="#FT-8841" placeholder="#FT-XXXX">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label">TURNSTILE GATE BAY</label>
+                    <select id="turnstile-gate-select" class="form-input">
+                      <option value="Gate-Bay-01">Gate-Bay-01 (Main Concourse)</option>
+                      <option value="Gate-Bay-02">Gate-Bay-02 (Heavy Rig Zone)</option>
+                      <option value="VIP-Priority-01">VIP-Priority-01 (Coaching Lounge)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">SCAN METHOD</label>
+                    <select id="turnstile-method-select" class="form-input">
+                      <option value="rfid">NFC / RFID Wearable</option>
+                      <option value="qr">Dynamic Biometric QR</option>
+                      <option value="kiosk">Self-Serve Kiosk</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                  <button type="button" class="btn btn-lime" style="flex: 1;" onclick="executeTurnstileScan(false)">
+                    ⚡ Scan In (Ingress)
+                  </button>
+                  <button type="button" class="btn btn-dark" style="flex: 1;" onclick="executeTurnstileScan(true)">
+                    ➔ Scan Out (Egress)
+                  </button>
+                </div>
+              </div>
+
+              <!-- Simulator Live Feedback Terminal -->
+              <div>
+                <label class="form-label">LIVE RELAY TELEMETRY LOG</label>
+                <div id="turnstile-console-screen" style="background: #080a0c; border: 1px solid var(--border-dark); border-radius: 8px; padding: 1rem; font-family: var(--font-mono); font-size: 0.8rem; height: 185px; overflow-y: auto; color: #a1a1aa; line-height: 1.6;">
+                  <div style="color: var(--accent-lime); font-weight: bold;">[SYSTEM READY] Turnstile Optical Relays Online.</div>
+                  <div>Mesh node: Frankfurt DC-04 | Polling frequency: 200ms</div>
+                  <div>Select an athlete badge and click 'Scan In' to test live database verification.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time Live Attendance Audit Table -->
+          <div class="chart-panel-card" style="margin-top: 1.5rem;">
+            <div class="panel-header-row">
+              <div>
+                <h3 class="panel-title">Real-Time Access Audit Stream</h3>
+                <p class="panel-subtitle">Live database log of turnstile gate scans across all facility hubs.</p>
+              </div>
+              <button class="btn btn-dark-toolbar" onclick="refreshAttendanceLog()">
+                <span>↻ Refresh Telemetry</span>
+              </button>
+            </div>
+
+            <div class="data-table-container">
+              <table class="member-directory-table" id="table-attendance-log">
+                <thead>
+                  <tr>
+                    <th>ATHLETE</th>
+                    <th>RFID BADGE</th>
+                    <th>IN / OUT TIME</th>
+                    <th>GATE</th>
+                    <th>METHOD</th>
+                    <th>DURATION</th>
+                    <th>GATE STATUS</th>
+                  </tr>
+                </thead>
+                <tbody id="attendance-table-body">
+                  <!-- Live rows dynamically injected via API -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             PAGE 7: REPORTS (#page-reports)
+             ==================================================================== -->
+        <div id="page-reports" class="admin-sub-page">
+          <div class="subpage-header-block">
+            <div class="header-action-row">
+              <div>
+                <h1 class="page-main-title">Analytics &amp; Intelligence Reports</h1>
+                <p class="panel-subtitle">Executive facility metrics, revenue forecasting, cohort retention, and audit logs.</p>
+              </div>
+              <button class="btn btn-lime" onclick="showToast('Custom Intelligence Report generated!')">📊 Generate Report</button>
+            </div>
+          </div>
+
+          <div class="admin-kpi-grid">
+            <div class="kpi-card"><span class="kpi-label font-mono">NET MRR EXPANSION</span><span class="kpi-big-num">₹21,85,400</span><span class="font-mono text-lime text-xs">⚡ +14.8% vs target</span></div>
+            <div class="kpi-card"><span class="kpi-label font-mono">30-DAY RETENTION</span><span class="kpi-big-num">97.4%</span><span class="font-mono text-muted text-xs">Top Decile Metric</span></div>
+            <div class="kpi-card"><span class="kpi-label font-mono">60-DAY RETENTION</span><span class="kpi-big-num">94.1%</span><span class="font-mono text-muted text-xs">Habit Formation</span></div>
+            <div class="kpi-card"><span class="kpi-label font-mono">COHORT LTV</span><span class="kpi-big-num">₹18,400</span><span class="font-mono text-muted text-xs">Per Athlete Avg</span></div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             PAGE 8: SETTINGS (#page-settings)
+             ==================================================================== -->
+        <div id="page-settings" class="admin-sub-page">
+          <div class="subpage-header-block">
+            <div class="header-action-row">
+              <div>
+                <h1 class="page-main-title">System &amp; Club Settings</h1>
+                <p class="panel-subtitle">Manage facility identity, turnstile relay hardware, and staff access roles.</p>
+              </div>
+              <button class="btn btn-lime" onclick="showToast('System configuration saved across nodes!')">Save Changes</button>
+            </div>
+          </div>
+
+          <div class="settings-grid-layout">
+            <div class="chart-panel-card">
+              <div class="font-mono text-lime text-xs" style="margin-bottom: 1rem;">SUB-SETTINGS MENU</div>
+              <ul class="settings-menu-list">
+                <li><a href="#" class="settings-link active">&bull; Facility Identity &amp; Branding</a></li>
+                <li><a href="#" class="settings-link">&bull; Location &amp; Geofence Map</a></li>
+                <li><a href="#" class="settings-link">&bull; Operating Hours &amp; Turnstile Schedule</a></li>
+                <li><a href="#" class="settings-link">&bull; Safety Thresholds &amp; Auto-Lock</a></li>
+                <li><a href="#" class="settings-link">&bull; API &amp; Hardware Relays</a></li>
+              </ul>
+            </div>
+
+            <div class="chart-panel-card">
+              <h3 class="panel-title">Facility Identity &amp; Branding</h3>
+              <p class="panel-subtitle" style="margin-bottom: 1.5rem;">Gym branding visible to members, trainer apps, and RFID pass credentials.</p>
+              
+              <div class="form-group">
+                <label class="form-label">FACILITY LEGAL NAME</label>
+                <input type="text" class="form-input" value="FitTrack Executive Studio Hub — Central Campus">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">MAX CONCURRENT CAPACITY THRESHOLD</label>
+                <input type="text" class="form-input" value="550 Athletes Max">
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" checked style="accent-color: var(--accent-lime);">
+                  <span>Enable Emergency Turnstile Auto-Lock on Safety Overrun</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       MODALS SYSTEM
+       ========================================================================== -->
+  
+  <!-- Generic Action Modal Dialog Overlay -->
+  <div id="modal-backdrop" class="modal-backdrop">
+    <div class="modal-box">
+      <button id="modal-close" class="modal-close-btn" onclick="closeModal()">&times;</button>
+      <div class="badge-tag" style="margin-bottom: 1rem;">FACILITY TERMINAL</div>
+      <h3 id="modal-title" style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem;">
+        Modal Title
+      </h3>
+      <div id="modal-body-content">
+        <p id="modal-body-text" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.55; margin-bottom: 1.75rem;">
+          Modal body message...
+        </p>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+        <button class="btn btn-dark" onclick="closeModal()">Cancel</button>
+        <button id="modal-action-btn" class="btn btn-lime">Confirm Action</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Record Manual Payment Modal -->
+  <div id="modal-record-payment" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeRecordPaymentModal()">&times;</button>
+      <div class="badge-tag" style="margin-bottom: 0.75rem;">FINANCIAL OPERATIONS</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">
+        Record Manual Payment
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.25rem;">
+        Log an in-person, bank transfer, or offline payment directly into the live audit ledger.
+      </p>
+
+      <form id="form-manual-payment" onsubmit="handleManualPaymentSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">ATHLETE / MEMBER</label>
+          <select id="pay-input-member" class="form-input" required>
+            <option value="Elena Rostova">Elena Rostova (elena.rostova@nexusfit.com)</option>
+            <option value="Marcus Brody">Marcus Brody (m.brody@apexathletics.io)</option>
+            <option value="Kaelen Diaz">Kaelen Diaz (kaelen.diaz@apexspeed.io)</option>
+            <option value="Zara Lindqvist">Zara Lindqvist (zara.lind@nordicfit.com)</option>
+            <option value="Chloe St. Pierre">Chloe St. Pierre (c.stpierre@designgrid.ca)</option>
+            <option value="Liam Vance">Liam Vance (liam.vance@vancamedia.co)</option>
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">AMOUNT (INR / ₹)</label>
+            <input type="number" id="pay-input-amount" class="form-input" value="4999.00" step="0.01" placeholder="₹ Amount in INR" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PAYMENT METHOD</label>
+            <select id="pay-input-method" class="form-input" required>
+              <option value="UPI / QR POS Terminal">UPI / QR POS Terminal (GPay / PhonePe / Paytm)</option>
+              <option value="e-NACH Auto-Debit / NetBanking">e-NACH Auto-Debit / NetBanking</option>
+              <option value="RuPay / Card POS Terminal">RuPay / Debit / Credit Card Terminal</option>
+              <option value="Front Desk Cash POS">Front Desk Terminal / Cash</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">PLAN / LEDGER DESCRIPTION</label>
+          <input type="text" id="pay-input-desc" class="form-input" value="Performance Pro (Monthly Settlement)" required>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-dark" onclick="closeRecordPaymentModal()">Cancel</button>
+          <button type="submit" class="btn btn-lime">Record &amp; Sync Ledger</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Member Modal -->
+  <div id="modal-add-member" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeAddMemberModal()">&times;</button>
+      <div class="badge-tag" style="margin-bottom: 0.75rem;">MEMBER ONBOARDING</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">
+        Add New Member
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.25rem;">
+        Provision RFID access credentials, configure subscription tier, and assign an elite coach.
+      </p>
+
+      <form id="form-add-member" onsubmit="handleAddMemberSubmit(event)">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">FULL NAME</label>
+            <input type="text" id="add-member-name" class="form-input" placeholder="e.g. Jordan Cole" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">EMAIL ADDRESS</label>
+            <input type="email" id="add-member-email" class="form-input" placeholder="e.g. jordan.c@athlete.io" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">PHONE CONTACT</label>
+            <input type="text" id="add-member-phone" class="form-input" placeholder="+1 (555) 234-5678" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">RFID ACCESS ID</label>
+            <input type="text" id="add-member-id" class="form-input" value="#FT-8930" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">MEMBERSHIP PLAN</label>
+            <select id="add-member-plan" class="form-input">
+              <option value="pro">Pro Athlete (₹4,999/mo)</option>
+              <option value="elite">Elite Performance (₹9,999/mo)</option>
+              <option value="standard">Standard Access (₹2,499/mo)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">ASSIGNED COACH</label>
+            <select id="add-member-coach" class="form-input">
+              <option value="Marcus Vance">Marcus Vance</option>
+              <option value="Elena Rostova">Elena Rostova</option>
+              <option value="Jax Thorne">Jax Thorne</option>
+              <option value="Maya Lin">Maya Lin</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-dark" onclick="closeAddMemberModal()">Cancel</button>
+          <button type="submit" class="btn btn-lime">+ Register &amp; Sync RFID</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- New Subscription Modal -->
+  <div id="modal-new-subscription" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeNewSubscriptionModal()">&times;</button>
+      <div class="badge-tag" style="margin-bottom: 0.75rem;">TIER ARCHITECTURE</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">
+        New Subscription Mandate
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.25rem;">
+        Bind a recurring billing schedule to an athlete's digital payment profile.
+      </p>
+
+      <form id="form-new-sub" onsubmit="handleNewSubscriptionSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">SELECT ATHLETE</label>
+          <select id="sub-input-member" class="form-input" required>
+            <option value="Kaelen Diaz">Kaelen Diaz (kaelen.diaz@apexspeed.io)</option>
+            <option value="Elena Rostova">Elena Rostova (elena.rostova@nexusfit.com)</option>
+            <option value="Zara Lindqvist">Zara Lindqvist (zara.lind@nordicfit.com)</option>
+            <option value="Marcus Brody">Marcus Brody (m.brody@apexathletics.io)</option>
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">TIER</label>
+            <select id="sub-input-tier" class="form-input">
+              <option value="Performance Pro">Performance Pro (₹4,999/mo)</option>
+              <option value="Elite Conditioning">Elite Conditioning (₹9,999/mo)</option>
+              <option value="Basic Access">Basic Access (₹2,499/mo)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">BILLING FREQUENCY</label>
+            <select id="sub-input-freq" class="form-input">
+              <option value="Monthly (1-mo)">Monthly (1-mo Cycle)</option>
+              <option value="Quarterly">Quarterly (3-mo Cycle)</option>
+              <option value="Annual">Annual (12-mo Cycle)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="sub-input-autorenew" checked style="accent-color: var(--accent-lime);">
+            <span>Enable Automated Billing Mandate (UPI AutoPay / e-NACH Auto-Charge)</span>
+          </label>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-dark" onclick="closeNewSubscriptionModal()">Cancel</button>
+          <button type="submit" class="btn btn-lime">Create Subscription Mandate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notifications Center Modal -->
+  <div id="modal-notifications" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 540px;">
+      <button class="modal-close-btn" onclick="closeNotificationsModal()">&times;</button>
+      <div class="panel-header-row" style="margin-bottom: 1rem;">
+        <div>
+          <div class="badge-tag">TELEMETRY ALERTS</div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-top: 0.25rem;">
+            Facility Notifications
+          </h3>
+        </div>
+        <button class="btn btn-dark-toolbar" onclick="markAllNotificationsRead()" style="font-size: 0.75rem;">
+          Mark all as read
+        </button>
+      </div>
+      <div id="notifications-list-container" style="max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem;">
+        <!-- Injected dynamically via API -->
+      </div>
+      <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
+        <button class="btn btn-dark" onclick="closeNotificationsModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./src/api.js?v=2.5.0"></script>
+  <script src="./src/main.js?v=2.5.0"></script>
+</body>
+</html>
